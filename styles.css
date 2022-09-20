@@ -85,6 +85,9 @@
   margin-left: 2%;
 }
 /*Boton*/
+.figure{
+  position: relative;
+}
 .scroll-down{
     /* width: 20px; */
     position: absolute;
@@ -110,6 +113,7 @@
   text-align: center;
 }
 .proyectos-img{
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin-left: 2%;
@@ -177,15 +181,20 @@ a:hover{
 .cv-intro{
   text-align: justify;
 }
-/*body {
-    height: 150vh;
+/* Footer */
+.footer{
+  position: relative;
 }
-*/
 /*.index-intro-box{
   background-color: #325d88;
   opacity: 0.5;
 }
 */
+/*body {
+    height: 150vh;
+}
+*/
+
 /*Particles background*/
 #particles-js {
 	position: fixed;
