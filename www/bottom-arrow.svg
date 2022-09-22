@@ -15,10 +15,10 @@
         <g id="down-arrow">
             <g id="Group-2" transform="translate(25.000000, 26.000000) scale(-1, 1) rotate(-90.000000) translate(-25.000000, -26.000000) translate(9.000000, 10.000000)">
                 <g id="Oval-2">
-                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill="#ffffff" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#325d88" fill-rule="evenodd" xlink:href="#path-1"></use>
                 </g>
-                <g id="Group" transform="translate(18.658175, 16.200773) rotate(-45.000000) translate(-18.658175, -16.200773) translate(13.158175, 10.700773)" fill="#2A2838">
+                <g id="Group" transform="translate(18.658175, 16.200773) rotate(-45.000000) translate(-18.658175, -16.200773) translate(13.158175, 10.700773)" fill="#ffffff">
                     <rect id="Rectangle" x="0" y="0" width="10.24" height="1.57538462" rx="0.787692308"></rect>
                     <rect id="Rectangle-Copy" transform="translate(0.787692, 5.120000) rotate(90.000000) translate(-0.787692, -5.120000) " x="-4.33230769" y="4.33230769" width="10.24" height="1.57538462" rx="0.787692308"></rect>
                 </g>
