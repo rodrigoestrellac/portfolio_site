@@ -174,7 +174,8 @@
   /*color: #950101;*/
 }
 .wine img{
-  float: right;
+  position: relative;
+  right: -15%;
 }
 .oval{
   position: absolute;
@@ -307,7 +308,6 @@ a:hover{
   }
   .wine img{
     height: 180px;
-    float: left;
   }
   .preciosClaros img{
     height: 180px;
