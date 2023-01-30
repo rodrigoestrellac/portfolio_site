@@ -256,7 +256,7 @@ a:hover{
 	z-index: -2;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .intro-title{
     font-size: 50px;
     width: 80%;
@@ -279,7 +279,7 @@ a:hover{
   .proyectos-img{
   margin-left: 1%;
   margin-right: 1%;
-  /*flex-direction: column;*/
+  flex-direction: column;
   }
   .oval{
     display: none
