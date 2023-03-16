@@ -138,10 +138,54 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </div>
 <div class="flowingFields-content">
 <p><img src="www/flowingFields_66.jpeg" class="img-fluid" style="float: right; padding:1%; margin-top:-1%; margin-left:1%" width="250"></p>
-<p>This is my best and most versatile generative art algorithm up to date. It is heavily inspired by <a href="https://tylerxhobbs.com/">Tyler Hobbs’</a> work in <a href="https://tylerxhobbs.com/fidenza">Fidenza</a>. It has more than 20 parameters to play with so the results can vary a lot. <br> The algorithm is based on the <em>canvas_flow</em> function in the <a href="https://koenderks.github.io/aRtsy/">aRtsy package</a> developed by Koen Derks. That function draws a flowfield in the canvas using <a href="https://ggplot2.tidyverse.org/">ggplot2</a> as the core engine.<br> With that baseground I started adding parameters and features to the basic algorithm. I will explain most of them in the next lines.</p>
+<p>This is my best and most versatile generative art algorithm up to date. It is heavily inspired by <a href="https://tylerxhobbs.com/">Tyler Hobbs’</a> work in <a href="https://tylerxhobbs.com/fidenza">Fidenza</a>. It has more than 20 parameters to play with so the results can vary a lot. <br> The algorithm is based on the <em>canvas_flow</em> function in the <a href="https://koenderks.github.io/aRtsy/">aRtsy package</a> developed by Koen Derks. That function draws a flowfield in the canvas using <a href="https://ggplot2.tidyverse.org/">ggplot2</a> as the core engine.<br> From that base ground I started adding parameters and features to the basic function. I will explain most of them in the next lines.</p>
+<section id="stroke-style" class="level3">
+<h3 data-anchor-id="stroke-style">Stroke Style</h3>
+<p>One of the first features I worked on is the <em>stroke style</em>. The basic function worked with random stroke size using a rounded segment to connect the coordinates of the line. With this way of plotting, the lines end up having a <em>brushstroke</em> feel. So by tweaking the code a little bit I was able to add a parameter to select whether to connect the dots using a squared stroke or a rounded one. <br> Then, I thought that the rounded strokes looked a bit similar to pipes, so I ended up adding the <em>pipes</em> and <em>pipes reverse</em> stroke styles, which consist basically in adding dots at the start or end of the lines simulating the hole of the pipes. Here the trick is that ggplot draws the lines all at once, so the holes of the pipes might look weird if the lines overlap. So to fix that the algorithm plots each pair of line-hole one by one, making the depth to feel more ‘realistic’. The same dot-line pair is used to make the <em>circle ending</em> style of stroke. The difference is that the circle is placed in both start and end of the line and it is bigger than the stroke of the line. <br> The last type of stroke style is not actually a stroke, by changing the <em>geom_segment</em> function to <em>geom_point</em> in ggplot and making the step size of the iterations fixed we get the <em>dots</em> stroke style.<br> Some examples of the types of stroke styles are shown below.</p>
+<div style="display: flex; justify-content: space-around;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields9.jpg" class="figure img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Brushstroke</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields6.jpg" class="figure img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Square</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields_66.jpeg" class="figure img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Round</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div style="display: flex; justify-content: space-around;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields3.jpg" class="figure img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Pipes</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields50.jpg" class="figure img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Circle Ending</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields28.jpg" class="figure img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Dots</figcaption><p></p>
+</figure>
+</div>
+</div>
+</section>
 <section id="collision-check" class="level3">
 <h3 data-anchor-id="collision-check">Collision Check</h3>
-<p>One of the first features I worked on was the collision check for the lines drawn. Now there are three levels of collision to check (big, small and none). If it is one of the first two, the algorithm checks if the line it is currently drawing is about to collide to any previous lines drawn. The trick here is to also take into account the stroke size of the lines. And this is really tricky because the Flowing Fields algorithm consists of two parts, a C++ part which iterates to calculate the flow of each line, and the R algorithm that works with the color assignment and plotting of the lines. The tricky part is that the C++ does not know the stroke size of the actual plotted lines and in terms of the X and Y axis. That way, the collision check has a bit of randomness, or beautiful imperfection if I may, in the way that even if the check is big, for big thick lines may still overlap. <strong>BEAUTIFUL</strong> The pictures above show the differences between the three types of collision check.</p>
+<p>Next I started working on the collision check for the lines drawn. Now there are three levels of collision to check (big, small and none). If it is one of the first two, the algorithm checks if the line it is currently drawing is about to collide to any of the previous lines drawn. The trick here is to also take into account the stroke size of the lines. And this is really tricky because the Flowing Fields algorithm consists of two parts, a C++ part which iterates to calculate the flow of each line, and the R algorithm that works with the color assignment and plotting of the lines. It is tricky because the C++ does not know the stroke size of the actual plotted lines and in terms of the X and Y axis. That way, the collision check has a bit of randomness, or beautiful imperfection if I may, in the way that even if the check is big, for big thick lines may still overlap. <strong>BEAUTIFUL</strong> The pictures below show the differences between the three types of collision checks.</p>
 <div style="display: flex; justify-content: space-around;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -162,6 +206,54 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </figure>
 </div>
 </div>
+</section>
+<section id="color" class="level3">
+<h3 data-anchor-id="color">Color</h3>
+<p>This is more of a constantly evolving feature than a discrete step. Different color palettes and ways of assign colors to the lines are constantly being added, probably because it is fun and because in many cases it is somewhat easy to add a new possibility to the algorithm. I will just comment on the ways of defining a color palette or a method to assign color to lines.</p>
+<section id="color-palettes" class="level4">
+<h4 data-anchor-id="color-palettes">Color palettes</h4>
+<div class="quarto-figure quarto-figure-center" style="float: left; margin-top:1%; margin-right:1%">
+<figure class="figure">
+<p><img src="www/flowingFields39.jpg" height="200" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Vegan Tacos</figcaption><p></p>
+</figure>
+</div>
+<p>The aRtsy package has a lot of color palettes, my favorite is called Mixer 2 (I even have a printed flowfield with that palette at home). With the base ground set by Koen Derks I started experimenting with colors, the main sources of inspiration come from food, landscapes and music. That way I came up with the <em>Vegan Tacos</em>, <em>City Sunset</em> or <em>Fire Arcade</em> palettes for example. Yes, naming the palettes is also very fun.</p>
+</section>
+<section id="color-assignment" class="level4">
+<h4 data-anchor-id="color-assignment">Color assignment</h4>
+<p>The way of assigning color to the lines is also a ever evolving process. The first ways of assigning color I added are the <em>Smooth</em> ones Those just assign the color according to the mean position of the line. It can be in terms of the X or Y axis, and also in terms of a radial distance from a given point of the canvas. Color can also be assigned in terms of the starting or ending position of the line. <br></p>
+<div class="quarto-figure quarto-figure-center" style="float: right; margin-top:1%; margin-left:1%">
+<figure class="figure">
+<p><img src="www/flowingFields65.jpg" class="img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Smooth Strip of Color</figcaption><p></p>
+</figure>
+</div>
+<p>The last methods added are the ones that set just a dash, a stroke or a strip of color. They just assign the color palette to a given set of lines. The coloured lines are chosen in terms of size or position. The remaining lines are painted with colors that are similar to the background of the canvas or in shades of grey (yup, like the book).</p>
+</section>
+<section id="single-stroke-color" class="level4">
+<h4 data-anchor-id="single-stroke-color">Single Stroke Color</h4>
+<div class="quarto-figure quarto-figure-center" style="float: left; margin-top:1%; margin-right:1%">
+<figure class="figure">
+<p><img src="www/flowingFields51.jpg" class="img-fluid figure-img" width="200"></p>
+<p></p><figcaption class="figure-caption">Single Stroke Color</figcaption><p></p>
+</figure>
+</div>
+<p>Inspired by the Fidenza collection I set a parameter that defines whether the lines can change color or not. If it is true, the lines can have up to three different colors. In the case of the color assignment methods that add just a bit of color the lines can have up to four colors, and the remaining lines can have more many colors as well, but always in shades of grey or the background.</p>
+<!-- ![Predominant Color](www/flowingFields69.jpg){style="float: right; margin-top:-1%; margin-left:1%" width="200"} -->
+<p><br></p>
+</section>
+<section id="predominant-color" class="level4">
+<h4 data-anchor-id="predominant-color">Predominant Color</h4>
+<p>If true, a color has 2 out of 3 chances to get assigned. The rest of the palette shares the remaining chances.</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+</section>
+</section>
+<section id="flow" class="level3">
+<h3 data-anchor-id="flow">Flow</h3>
+<p>This parameter sets the <em>flowing of the fields</em>, it sets the way the lines will move through the canvas. The initial function had many algorithms to generate the angles according to which the lines will turn. The ones that I use the most are support vector machines (SVM) and K nearest neighboors (KNN). I added the spiral and straigth flows, with their <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a> modifications. <br> The speed of the spiral and the frequency of the perlin noise are parameters that can be modified.</p>
 </section>
 </div>
 </div>
