@@ -5,5 +5,19 @@
     "title": "Rodrigo Estrella",
     "section": "",
     "text": "Soy Magíster en Economía por la Universidad Alberto Hurtado y Reporting Analyst - Developer en #tga. Me interesan los temas relacionados con Investigación Operativa, Inteligencia de Negocios y Ciencia de Datos. Tengo experiencia en análisis de datos y aplicación de modelos estadísticos y econométricos para la industria del retail y la industria inmobiliaria. Fanático de R, lo uso para todo: desde arte generativo a aplicaciones en Shiny, pasando por estimaciones de demanda y modelos de machine learning.\n\n\n\nUniversidad Alberto Hurtado | Santiago, CL  Magíster en Economía | Ago 2018 - Dic 2019\nUniversidad Nacional de Cuyo | Mendoza, AR  Licenciado en Economía | Mar 2010 - Nov 2017\n\n\n\n#tga | Reporting Analyst - Developer | May 2022 - actualidad\n#tga | Reporting Analyst | Jun 2021 - May 2022\nMillán SA | Analista de Negocios | Feb 2017 - actualidad\nUalabee | Data Analyst | Ene 2021 - Jun 2021"
+  },
+  {
+    "objectID": "flowingFields.html",
+    "href": "flowingFields.html",
+    "title": "Rodrigo Estrella",
+    "section": "",
+    "text": "Flowing Fields\n\n\nThis is my best and most versatile generative art algorithm up to date. It is heavily inspired by Tyler Hobbs’ work in Fidenza. It has more than 20 parameters to play with so the results can vary a lot. The algorithm is based on the canvas_flow function in the aRtsy package developed by Koen Derks. That function draws a flowfield in the canvas using ggplot2 as the core engine. With that base ground I started adding parameters and features to the basic algorithm. I will explain most of them in the next lines."
+  },
+  {
+    "objectID": "flowingFields.html#collision-check",
+    "href": "flowingFields.html#collision-check",
+    "title": "Rodrigo Estrella",
+    "section": "Collision Check",
+    "text": "Collision Check"
   }
 ]
