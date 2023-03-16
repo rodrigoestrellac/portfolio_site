@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.269">
@@ -39,15 +39,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
-    "search-no-results-text": "Sin resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VMG6412QZY"></script>
@@ -96,11 +96,11 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
  <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./generativeArt.html" aria-current="page">
+    <a class="nav-link" href="./generativeArt.html">
  <span class="menu-text">Arte Generativo</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./flowingFields.html">
+    <a class="nav-link active" href="./flowingFields.html" aria-current="page">
  <span class="menu-text">Flowing Fields</span></a>
   </li>  
 </ul>
@@ -132,108 +132,40 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 
 
 <div class="intro-screen-generative2">
-<div class="grid">
-<div class="g-col-12 intro">
-<!-- ::::: {.intro-screen} -->
-<div class="intro-wrapper animSlideIn">
-<div class="intro-title animFadeIn">
-<p>Así es…</p>
+<div class="flowingFieldsPage">
+<div class="flowingFields-title">
+<p>Flowing Fields</p>
 </div>
-<div class="subtitle-wrapper">
-<div class="subtitle-wrap animFadeIn">
-<p>También hago un poquito de arte generativo, abajo les dejo algunas de mis favoritas. El resto las pueden ver en mi <a href="https://opensea.io/es/Rodriguin_art">perfil de OpenSea</a></p>
-</div>
-</div>
-</div>
-<div class="scroll-down animFadeIn">
+<div class="flowingFields-content">
+<p><img src="www/flowingFields_66.jpeg" class="img-fluid" style="float: right; padding:1%; margin-top:-1%; margin-left:1%" width="250"></p>
+<p>This is my best and most versatile generative art algorithm up to date. It is heavily inspired by <a href="https://tylerxhobbs.com/">Tyler Hobbs’</a> work in <a href="https://tylerxhobbs.com/fidenza">Fidenza</a>. It has more than 20 parameters to play with so the results can vary a lot. <br> The algorithm is based on the <em>canvas_flow</em> function in the <a href="https://koenderks.github.io/aRtsy/">aRtsy package</a> developed by Koen Derks. That function draws a flowfield in the canvas using <a href="https://ggplot2.tidyverse.org/">ggplot2</a> as the core engine.<br> With that baseground I started adding parameters and features to the basic algorithm. I will explain most of them in the next lines.</p>
+<section id="collision-check" class="level3">
+<h3 data-anchor-id="collision-check">Collision Check</h3>
+<p>One of the first features I worked on was the collision check for the lines drawn. Now there are three levels of collision to check (big, small and none). If it is one of the first two, the algorithm checks if the line it is currently drawing is about to collide to any previous lines drawn. The trick here is to also take into account the stroke size of the lines. And this is really tricky because the Flowing Fields algorithm consists of two parts, a C++ part which iterates to calculate the flow of each line, and the R algorithm that works with the color assignment and plotting of the lines. The tricky part is that the C++ does not know the stroke size of the actual plotted lines and in terms of the X and Y axis. That way, the collision check has a bit of randomness, or beautiful imperfection if I may, in the way that even if the check is big, for big thick lines may still overlap. <strong>BEAUTIFUL</strong> The pictures above show the differences between the three types of collision check.</p>
+<div style="display: flex; justify-content: space-around;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="#favoritos"><img src="www/bottom-arrow.svg" class="img-fluid figure-img"></a></p>
+<p><img src="www/flowingFields69.jpg" class="figure img-fluid figure-img" width="225"></p>
+<p></p><figcaption class="figure-caption">Big</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields49.jpg" class="img-fluid figure-img" width="225"></p>
+<p></p><figcaption class="figure-caption">Small</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="www/flowingFields30.jpg" class="img-fluid figure-img" width="225"></p>
+<p></p><figcaption class="figure-caption">None</figcaption><p></p>
 </figure>
 </div>
 </div>
-<!-- ::::: -->
-</div>
-</div>
-<!-- ::: grid -->
-<div id="favoritos" class="animFadeIn g-col-12">
-<div class="wrapper-art">
-<div class="one">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/flowfields_artwork (18).jpeg"><img src="www/flowfields_artwork (18).jpeg" height="500" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Flowfield-AM</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="two">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/flowfields_artwork (15).jpeg"><img src="www/flowfields_artwork (15).jpeg" height="200" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Flowfield-Mixer2</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="three">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/cellularAutomata_artwork (12).jpeg"><img src="www/cellularAutomata_artwork (12).jpeg" height="200" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Cellular Automata-Winery</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="four">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/mondrianomies_artwork (11).jpeg"><img src="www/mondrianomies_artwork (11).jpeg" height="200" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Mondrianomies-Mixer2</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="five">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/flowfields_artwork (28).jpeg"><img src="www/flowfields_artwork (28).jpeg" height="200" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Flowfield-Partytime</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="six">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/cellularAutomata_artwork (10).jpeg"><img src="www/cellularAutomata_artwork (10).jpeg" height="200" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Cellular Automata-Mixer2</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="seven">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/mondrianomies_artwork_Lilo.jpeg"><img src="www/mondrianomies_artwork_Lilo.jpeg" height="450" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Mondrianomies-Lilito2</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="eight">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/flowfields_artwork (11).jpeg"><img src="www/flowfields_artwork (11).jpeg" class="img-fluid figure-img" width="600"></a></p>
-<p></p><figcaption class="figure-caption">Flowfield-PM</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="nine">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/cellularAutomata_artwork (5).jpeg"><img src="www/cellularAutomata_artwork (5).jpeg" height="338" class="figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Cellular Automata-Sky</figcaption><p></p>
-</figure>
+</section>
 </div>
 </div>
 </div>
-</div>
-</div>
-<!-- ::: -->
 
 
 
@@ -393,12 +325,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiado");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiado");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

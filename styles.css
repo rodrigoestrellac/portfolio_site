@@ -326,6 +326,37 @@ a:hover{
 .intro-screen-generative{
   background-image: url('www/flowfields_artwork (32).jpeg');
 }
+
+.flowingFields-title{
+  font-size: 64px;
+  font-family: Arial;
+  font-weight: bold;
+  width: 60%;
+}
+.flowingFieldsPage{
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-right: 2%;
+  padding-left: 2%;
+  box-shadow: 0 3px 10px rgb(91 120 112 / 0.2);
+}
+.flowingFields-content{
+  position: relative;
+  text-align: justify;
+}
+.flowingFields-content .figure-caption{
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.float-left{
+  position: relative;
+  float: left;
+}
+.img-right{
+  position: relative;
+  float: right;
+}
 /*.intro-screen-generative2{
   background-image: url('www/flowfields_artwork (32).jpeg');
 }
