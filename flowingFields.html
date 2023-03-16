@@ -138,7 +138,7 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </div>
 <div class="flowingFields-content">
 <p><img src="www/flowingFields_66.jpeg" class="img-fluid" style="float: right; padding:1%; margin-top:-1%; margin-left:1%" width="250"></p>
-<p>This is my best and most versatile generative art algorithm up to date. It is heavily inspired by <a href="https://tylerxhobbs.com/">Tyler Hobbs’</a> work in <a href="https://tylerxhobbs.com/fidenza">Fidenza</a>. It has more than 20 parameters to play with so the results can vary a lot. <br> The algorithm is based on the <em>canvas_flow</em> function in the <a href="https://koenderks.github.io/aRtsy/">aRtsy package</a> developed by Koen Derks. That function draws a flowfield in the canvas using <a href="https://ggplot2.tidyverse.org/">ggplot2</a> as the core engine.<br> From that base ground I started adding parameters and features to the basic function. I will explain most of them in the next lines.</p>
+<p>This is my best and most versatile generative art algorithm up to date. It is heavily inspired by <a href="https://tylerxhobbs.com/">Tyler Hobbs’</a> work in <a href="https://tylerxhobbs.com/fidenza">Fidenza</a>. It has more than 20 parameters to play with so the results can vary a lot. You can find the collection in <a href="https://opensea.io/collection/generative-app-flowing-fields">OpenSea</a>. <br> The algorithm is based on the <em>canvas_flow</em> function in the <a href="https://koenderks.github.io/aRtsy/">aRtsy package</a> developed by Koen Derks. That function draws a flowfield in the canvas using <a href="https://ggplot2.tidyverse.org/">ggplot2</a> as the core engine.<br> From that base ground I started adding parameters and features to the basic function. I will explain most of them in the next lines.</p>
 <section id="stroke-style" class="level3">
 <h3 data-anchor-id="stroke-style">Stroke Style</h3>
 <p>One of the first features I worked on is the <em>stroke style</em>. The basic function worked with random stroke size using a rounded segment to connect the coordinates of the line. With this way of plotting, the lines end up having a <em>brushstroke</em> feel. So by tweaking the code a little bit I was able to add a parameter to select whether to connect the dots using a squared stroke or a rounded one. <br> Then, I thought that the rounded strokes looked a bit similar to pipes, so I ended up adding the <em>pipes</em> and <em>pipes reverse</em> stroke styles, which consist basically in adding dots at the start or end of the lines simulating the hole of the pipes. Here the trick is that ggplot draws the lines all at once, so the holes of the pipes might look weird if the lines overlap. So to fix that the algorithm plots each pair of line-hole one by one, making the depth to feel more ‘realistic’. The same dot-line pair is used to make the <em>circle ending</em> style of stroke. The difference is that the circle is placed in both start and end of the line and it is bigger than the stroke of the line. <br> The last type of stroke style is not actually a stroke, by changing the <em>geom_segment</em> function to <em>geom_point</em> in ggplot and making the step size of the iterations fixed we get the <em>dots</em> stroke style.<br> Some examples of the types of stroke styles are shown below.</p>
@@ -185,7 +185,7 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </section>
 <section id="collision-check" class="level3">
 <h3 data-anchor-id="collision-check">Collision Check</h3>
-<p>Next I started working on the collision check for the lines drawn. Now there are three levels of collision to check (big, small and none). If it is one of the first two, the algorithm checks if the line it is currently drawing is about to collide to any of the previous lines drawn. The trick here is to also take into account the stroke size of the lines. And this is really tricky because the Flowing Fields algorithm consists of two parts, a C++ part which iterates to calculate the flow of each line, and the R algorithm that works with the color assignment and plotting of the lines. It is tricky because the C++ does not know the stroke size of the actual plotted lines and in terms of the X and Y axis. That way, the collision check has a bit of randomness, or beautiful imperfection if I may, in the way that even if the check is big, for big thick lines may still overlap. <strong>BEAUTIFUL</strong> The pictures below show the differences between the three types of collision checks.</p>
+<p>Next I started working on the collision check for the lines drawn. Now there are three levels of collision to check (big, small and none). If it is one of the first two, the algorithm checks if the line it is currently drawing is about to collide to any of the previous lines drawn. The trick here is to also take into account the stroke size of the lines. And this is really tricky because the Flowing Fields algorithm consists of two parts, a C++ part which iterates to calculate the flow of each line, and the R algorithm that works with the color assignment and plotting of the lines. It is tricky because the C++ does not know the stroke size of the actual plotted lines and in terms of the X and Y axis. That way, the collision check has a bit of randomness, or beautiful imperfection if I may, in the way that even if the check is big, for big thick lines may still overlap. <strong>BEAUTIFUL.</strong> The pictures below show the differences between the three types of collision checks.</p>
 <div style="display: flex; justify-content: space-around;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -239,7 +239,7 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <p></p><figcaption class="figure-caption">Single Stroke Color</figcaption><p></p>
 </figure>
 </div>
-<p>Inspired by the Fidenza collection I set a parameter that defines whether the lines can change color or not. If it is true, the lines can have up to three different colors. In the case of the color assignment methods that add just a bit of color the lines can have up to four colors, and the remaining lines can have more many colors as well, but always in shades of grey or the background.</p>
+<p>Inspired by the Fidenza collection I set a parameter that defines whether the lines can change color or not. If it is true, the lines can have up to three different colors. In the case of the color assignment methods that add just a bit of color the lines can have up to four colors, and the remaining lines can have more many colors as well, but always in shades of grey or the background color.</p>
 <!-- ![Predominant Color](www/flowingFields69.jpg){style="float: right; margin-top:-1%; margin-left:1%" width="200"} -->
 <p><br></p>
 </section>
@@ -254,6 +254,24 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <section id="flow" class="level3">
 <h3 data-anchor-id="flow">Flow</h3>
 <p>This parameter sets the <em>flowing of the fields</em>, it sets the way the lines will move through the canvas. The initial function had many algorithms to generate the angles according to which the lines will turn. The ones that I use the most are support vector machines (SVM) and K nearest neighboors (KNN). I added the spiral and straigth flows, with their <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a> modifications. <br> The speed of the spiral and the frequency of the perlin noise are parameters that can be modified.</p>
+</section>
+<section id="the-rest-of-the-fun-parameters" class="level3">
+<h3 data-anchor-id="the-rest-of-the-fun-parameters">The rest of the fun parameters</h3>
+<p>The rest of the parameters the Flowing Fields algorithm has to amuse ourselves are these ones:</p>
+<ul>
+<li>Orientation: portrait or landscape</li>
+<li>Number of lines: the number of lines that will be drawn in the canvas.</li>
+<li>Iterations: number of times the C++ algorithm moves the lines.</li>
+<li>Max step: maximum size of the random step the lines take in each iteration.</li>
+<li>Empty radius: whether or not the canvas has an empty spot. That space can be filled with a circle. Position and size of that circle are also parameters.</li>
+<li>Maximum and minimum stroke size: range from which the stroke size of the lines are randomly drawn.</li>
+<li>Maximum length of the lines: the lines can be set to have a maximum length that will stop the iteration for that line.</li>
+<li>Size of the portion of the canvas with color: this parameter applies only in the case of the color assignment method that only adds color to some lines.</li>
+<li>Margin: whether the canvas has margin or not.</li>
+<li>Signature: you can put your signature at the bottom of the artwork. My artistic name is <em>Rodriguin</em>.</li>
+</ul>
+<p>The algorithm itself is wrapped inside an <a href="https://shiny.rstudio.com/">R Shiny</a> app (<em>The Generative App</em>) that makes it easier to play with it. That’s all there is to the Flowing Fields algorithm and the Generative App. Hope you found it interesting. <br> Remember you can check the full <a href="https://opensea.io/collection/generative-app-flowing-fields">collection in OpenSea</a>.</p>
+<p><br></p>
 </section>
 </div>
 </div>
