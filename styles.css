@@ -11,6 +11,14 @@
 .intro{
   height: 100vh;
 }
+
+.quarto-title-block {
+  display: none;
+}
+
+.about-main .quarto-title-block  {
+  display: block;
+}
 /*Animaciones */
 /*Defino*/
 @keyframes fadeIn {
