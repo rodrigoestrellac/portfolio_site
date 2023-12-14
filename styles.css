@@ -276,7 +276,7 @@ a:hover{
 /*Arte Generativo*/
 #GenArtExplanation{
   margin: 2%;
-  background: #325d88;
+  /*background: #325d88;*/
   padding: 2%;
   border-radius: 5px;
   color: #f0f0f0;
