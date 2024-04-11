@@ -14,6 +14,7 @@ if (mediaQuery.matches) {
         const val = scrolled * 0.3;
         const pcMoved = Math.min(0.05 * val, 43);
         robot.style.transform = `translateY(${pcMoved}%)`;
+        robot.style.transform = `translateX(${-pcMoved/2}%)`;
         /*robot.style.marginTop = `${0.1 * val}%`;
         robot.style.transform = `translateY(${0.45 * val}%)`;
         robot.style.borderRadius = `${0.025 * val}%`;
@@ -26,8 +27,23 @@ if (mediaQuery.matches) {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const val = scrolled * 0.3;
-        const pcMoved = Math.min(0.025 * val, 43);
+        const pcMoved = Math.min(0.02 * val, 43);
         shopperRobot.style.transform = `translateX(${-pcMoved}%)`;
+        /*robot.style.marginTop = `${0.1 * val}%`;
+        robot.style.transform = `translateY(${0.45 * val}%)`;
+        robot.style.borderRadius = `${0.025 * val}%`;
+        robot.style.height = `${0.1 * val}px`;
+        robot.style.width = `${0.1 * val}px`;*/
+    });
+    
+    const carRobot = document.querySelector('.carScraper');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const val = scrolled * 0.3;
+        const pcMoved = Math.min(0.05 * val, 43);
+        carRobot.style.transform = `translateY(${pcMoved}%)`;
+        carRobot.style.transform = `translateX(${-pcMoved/2}%)`;
         /*robot.style.marginTop = `${0.1 * val}%`;
         robot.style.transform = `translateY(${0.45 * val}%)`;
         robot.style.borderRadius = `${0.025 * val}%`;
@@ -40,7 +56,7 @@ if (mediaQuery.matches) {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const val = scrolled * 0.3;
-        const pcMoved = Math.min(0.025 * val, 43);
+        const pcMoved = Math.min(0.02 * val, 43);
         /*console.log(val*0.2);*/
         wine.style.transform = `translateX(${pcMoved}%)`;
         /*wine.style.marginTop = `${0.05 * val}%`;
@@ -58,6 +74,7 @@ window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const val = scrolled * 0.3;
     const pcMoved = Math.min(0.05 * val, 43);
+    robot.style.transform = `translateX(${pcMoved/2}%)`;
     robot.style.transform = `translateY(${pcMoved}%)`;
     /*robot.style.marginTop = `${0.1 * val}%`;
     robot.style.transform = `translateY(${0.45 * val}%)`;
@@ -71,8 +88,23 @@ const shopperRobot = document.querySelector('.preciosClaros');
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const val = scrolled * 0.3;
-    const pcMoved = Math.min(0.10 * val, 43);
+    const pcMoved = Math.min(0.0750 * val, 43);
     shopperRobot.style.transform = `translateX(${-pcMoved}%)`;
+    /*robot.style.marginTop = `${0.1 * val}%`;
+    robot.style.transform = `translateY(${0.45 * val}%)`;
+    robot.style.borderRadius = `${0.025 * val}%`;
+    robot.style.height = `${0.1 * val}px`;
+    robot.style.width = `${0.1 * val}px`;*/
+});
+
+const carRobot = document.querySelector('.carScraper');
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const val = scrolled * 0.3;
+    const pcMoved = Math.min(0.05 * val, 43);
+    carRobot.style.transform = `translateX(${-pcMoved/2}%)`;
+    carRobot.style.transform = `translateY(${pcMoved}%)`;
     /*robot.style.marginTop = `${0.1 * val}%`;
     robot.style.transform = `translateY(${0.45 * val}%)`;
     robot.style.borderRadius = `${0.025 * val}%`;
@@ -85,7 +117,7 @@ const wine = document.querySelector('.wine');
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const val = scrolled * 0.3;
-    const pcMoved = Math.min(0.20 * val, 43);
+    const pcMoved = Math.min(0.150 * val, 43);
     /*console.log(val*0.2);*/
     wine.style.transform = `translateX(${pcMoved}%)`;
     /*wine.style.marginTop = `${0.05 * val}%`;
