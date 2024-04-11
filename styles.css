@@ -158,6 +158,11 @@
   flex-direction: row;
   align-content: center;
 }
+.carScraper{
+  position: relative;
+  flex-direction: row;
+  align-content: center;
+}
 .robot-title{
   width: 100%;
   font-weight: bold;
@@ -437,6 +442,10 @@ a:hover{
     display: flex;
     justify-content: center;
   }
+  .carScraper{
+    display: flex;
+    justify-content: center;
+  }
   .wine{
     display: flex;
     justify-content: center;
@@ -446,6 +455,9 @@ a:hover{
     justify-content: center;
   }
   .robot img{
+    height: 180px;
+  }
+  .carScraper img{
     height: 180px;
   }
   .wine img{
@@ -459,6 +471,10 @@ a:hover{
     font-size: 20px;
   }
   .robot-title{
+    width: 75%;
+    font-size: 20px;
+  }
+  .carScraper-title{
     width: 75%;
     font-size: 20px;
   }
