@@ -171,10 +171,10 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <p>Viaje del Wabi Sabi al Oriente</p>
 </div>
 <div class="flowingFields-content">
-<p><img src="www/wabi_sabi_artwork.png" class="img-fluid" style="float: right; padding:1%; margin-top:-1%; margin-left:1%" width="325"> La colección <em>Viaje del Wabi Sabi al Oriente</em> busca celebrar la belleza de lo imperfecto y lo efímero, principios fundamentales del wabi-sabi. Esta colección intenta capturar la serenidad y profundidad de estas ideas a través del arte algorítmico.</p>
+<p><img src="www/wabi_sabi_artwork.png" class="img-fluid" style="float: right; padding:1%; margin-top:-1%; margin-left:1%" width="300"> La colección <em>Viaje del Wabi Sabi al Oriente</em> busca celebrar la belleza de lo imperfecto y lo efímero, principios fundamentales del wabi-sabi. Esta colección intenta capturar la serenidad y profundidad de estas ideas a través del arte algorítmico.</p>
 <!-- ::: -->
 <p>La técnica utilizada combina la aleatoriedad y fluidez del acuarela con líneas suaves que evocan calma y aceptación. El acuarela, con su tendencia a producir formas impredecibles, simboliza la belleza de la imperfección. Por otro lado, las líneas buscan evocar calma y tranquilidad, pienso que reflejan un poco la sabiduría que da el paso del tiempo y el aceptar el paso del tiempo en nosotros mismos.</p>
-<p><img src="www/wabi sabi 4.png" class="img-fluid" style="float: left; padding:1%; margin-top:-1%; margin-left:1%" width="275"></p>
+<p><img src="www/wabi sabi 4.png" class="img-fluid" style="float: left; padding:1%; margin-top:-1%; margin-left:1%" width="300"></p>
 <p>Obras como <em>Yonder</em> de Thomas Lin Pedersen y el blog de Tyler Hobbs sobre la simulación de acuarela influyeron profundamente en el proceso creativo. Esta mezcla de técnicas y conceptos refleja un viaje hacia el descubrimiento y apreciación del wabi-sabi.</p>
 <p><em>Viaje del Wabi Sabi al Oriente</em> invita a los observadores a explorar la intersección entre tecnología y arte, mostrando cómo los algoritmos pueden capturar la esencia de conceptos filosóficos profundos. Este proyecto combina precisión algorítmica con un toque humano, resultando en piezas que celebran lo humano y lo impermanente.</p>
 <p><br> <br> <br></p>
@@ -183,9 +183,57 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <h3 data-anchor-id="proceso-técnico">Proceso técnico</h3>
 <p>El algoritmo para generar las piezas utiliza:</p>
 <ol type="1">
-<li><p><strong>Simulación de acuarela</strong>: Basada en la técnica descrita por <a href="https://www.tylerxhobbs.com/words/a-guide-to-simulating-watercolor-paint-with-generative-art">Tyler Hobbs</a>, replicando cómo el pigmento interactúa con el papel.</p></li>
-<li><p><strong>Capas de flow fields</strong>: Patrones fluidos generados para las líneas utilizando <em>Perlin noise</em>, creando curvas suaves y naturales. El proceso funciona de la siguiente manera, se calcula un flow field según el parámetro de capas, y se elije una línea de corte para cada capa. Luego se filtran solo las líneas que no se superponen con la capa previa. A su vez las capaz puede tener menor opacidad a medida que se acercan al horizonte.</p></li>
+<li><strong>Simulación de acuarela</strong>: Basada en la técnica descrita por <a href="https://www.tylerxhobbs.com/words/a-guide-to-simulating-watercolor-paint-with-generative-art">Tyler Hobbs</a>, replicando cómo el pigmento interactúa con el papel. El proceso consiste en tomar un polígono como base, que en esta obra es el <strong>blob</strong> que luego será la luna/sol y los polígonos de cada colina/ola.</li>
 </ol>
+<div style="text-align: center;display: block;padding:1%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="wabiSabi_journey_to_theEast_files/figure-html/base_polygon-1.png" width="250" height="250" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+Este polígono base se deformará agregando nuevos vértices.
+<div style="text-align: center;display: block;padding:1%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="wabiSabi_journey_to_theEast_files/figure-html/base_deformed_polygon-1.png" width="250" height="250" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Este polígono deformado será solamente una capa. El efecto final se logrará superponiendo muchas capas con muy poca opacidad.</p>
+<div style="text-align: center;display: block;padding:1%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="wabiSabi_journey_to_theEast_files/figure-html/wc_polygon-1.png" width="250" height="250" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Capas de flow fields</strong>: Patrones fluidos generados para las líneas utilizando <em>Perlin noise</em>, creando curvas suaves y naturales. El proceso funciona de la siguiente manera, se calcula un flow field para cada capa, estas capas luego serán las colinas/olas. Luego se elije una línea de corte para cada capa, que será la línea más larga dentro de un rango de posibles alturas para cada colina. Después se filtran solo las líneas que no se superponen con las capas previas. A su vez las capaz puede tener menor opacidad a medida que se acercan al horizonte.</li>
+</ol>
+<div class="flowfields" style="text-align: center;display: block;padding:1%;">
+<div class="cell" data-fig-output-width="424px" data-fig-output-height="600px">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="wabiSabi_journey_to_theEast_files/figure-html/flowfield-1.png" class="img-fluid figure-img" width="3984"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p>El algoritmo está implementado en <strong>R</strong>, mientras que el cálculo de los flow fields se realiza en <strong>C++</strong> usando el paquete Rcpp, permitiendo una mezcla eficiente de lenguajes para lograr los efectos deseados.</p>
 </section>
 <section id="paleta-de-colores" class="level3">
