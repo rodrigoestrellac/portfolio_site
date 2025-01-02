@@ -417,6 +417,11 @@ a:hover{
   padding-top: 14px;
   padding-bottom: 14px;
 }
+
+.flowfields img {
+  max-height: 600px;
+  width: auto;
+}
 /*.intro-screen-generative2{
   background-image: url('www/flowfields_artwork (32).jpeg');
 }
