@@ -357,6 +357,11 @@ a:hover{
   background-size: cover;
 }
 
+.intro-screen-wabiSabi{
+ /* background-image: url('www/stranger_earths_withAstronaut_number7.png');*/
+  background-size: cover;
+}
+
 .flowingFields-title{
   font-size: 64px;
   font-family: Arial;
@@ -383,6 +388,13 @@ a:hover{
   padding-left: 2%;
   box-shadow: 0 3px 10px rgb(91 120 112 / 0.2);
 }
+.wabiSabiPage{
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-right: 2%;
+  padding-left: 2%;
+  box-shadow: 0 3px 10px rgb(91 120 112 / 0.2);
+}
 .flowingFields-content{
   position: relative;
   text-align: justify;
@@ -399,6 +411,11 @@ a:hover{
 .img-right{
   position: relative;
   float: right;
+}
+
+#quarto-content>*{
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 /*.intro-screen-generative2{
   background-image: url('www/flowfields_artwork (32).jpeg');
