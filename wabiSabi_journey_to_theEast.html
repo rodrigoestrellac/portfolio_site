@@ -221,8 +221,9 @@ Este polígono base se deformará agregando nuevos vértices.
 </div>
 </div>
 <ol start="2" type="1">
-<li><strong>Capas de flow fields</strong>: Patrones fluidos generados para las líneas utilizando <em>Perlin noise</em>, creando curvas suaves y naturales. El proceso funciona de la siguiente manera, se calcula un flow field para cada capa, estas capas luego serán las colinas/olas. Luego se elije una línea de corte para cada capa, que será la línea más larga dentro de un rango de posibles alturas para cada colina. Después se filtran solo las líneas que no se superponen con las capas previas. A su vez las capaz puede tener menor opacidad a medida que se acercan al horizonte.</li>
+<li><strong>Capas de flowfields</strong>: Patrones fluidos generados para las líneas utilizando <em>Perlin noise</em>, creando curvas suaves y naturales. El proceso funciona de la siguiente manera, se calcula un flowfield para cada capa, estas capas luego serán las colinas/olas. Luego se elije una línea de corte para cada capa, que será la línea más larga dentro de un rango de posibles alturas para cada colina. Después se filtran solo las líneas que no se superponen con las capas previas. A su vez las capaz puede tener menor opacidad a medida que se acercan al horizonte.</li>
 </ol>
+<p>El resultado de ese proceso resulta en algo así:</p>
 <div class="flowfields" style="text-align: center;display: block;padding:1%;">
 <div class="cell" data-fig-output-width="424px" data-fig-output-height="600px">
 <div class="cell-output-display">
@@ -234,7 +235,12 @@ Este polígono base se deformará agregando nuevos vértices.
 </div>
 </div>
 </div>
-<p>El algoritmo está implementado en <strong>R</strong>, mientras que el cálculo de los flow fields se realiza en <strong>C++</strong> usando el paquete Rcpp, permitiendo una mezcla eficiente de lenguajes para lograr los efectos deseados.</p>
+<p>Luego se realiza el proceso de transformación en acuarela de los polígonos que forman cada colina u ola. Las capas de acuarela se intercalan para que los distintos colores de las colinas se mezclen mejor y el resultado se vea más natural.</p>
+<div style="display: flex;justify-content: center;padding:1%;">
+<p><img src="www/wabi sabi semi full.png" class="img-fluid" style="text-align: center;display: block; padding:1%; margin-top:-1%; margin-left:1%" width="424"></p>
+</div>
+<p>Finalmente la leyenda Wabi Sabi en Japonés (<strong>侘寂</strong>) puede agregarse o no.</p>
+<p>El algoritmo está implementado en <strong>R</strong>, mientras que el cálculo de los flowfields se realiza en <strong>C++</strong> usando el paquete Rcpp, permitiendo una mezcla eficiente de lenguajes para lograr los efectos deseados.</p>
 </section>
 <section id="paleta-de-colores" class="level3">
 <h3 data-anchor-id="paleta-de-colores">Paleta de colores</h3>
