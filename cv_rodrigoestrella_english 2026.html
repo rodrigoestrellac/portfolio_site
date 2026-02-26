@@ -73,6 +73,11 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
       window.localStorage.setItem('quarto-color-scheme', 'alternate'); // 'alternate' = dark in Quarto
     }
   })();
+  // Apply language class to body BEFORE paint to avoid flash of both languages
+  (function() {
+    var lang = window.localStorage.getItem('portfolio-lang') || 'es';
+    document.documentElement.className += ' lang-' + lang;
+  })();
 </script>
 
 
@@ -327,7 +332,7 @@ ul {
 </div>
 <section id="professional-profile" class="level2">
 <h2 class="anchored" data-anchor-id="professional-profile"><strong>Professional Profile</strong></h2>
-<p>Data Leader and MA in Economics with over 5 years of experience delivering high-impact analytical solutions. Specialist in <strong>R, Shiny, and SQL</strong>, focused on building end-to-end data products that reduce operational costs and improve efficiency. Expert at bridging the gap between complex econometric modeling and scalable software development to drive data-informed decision-making.</p>
+<p>Data Leader and MA in Economics with over 5 years of experience delivering high-impact analytical solutions. Specialist in <strong>R, Shiny, and SQL</strong>, focused on building end-to-end data products that reduce operational costs and improve efficiency. Expert at bridging the gap between complex econometric modeling and scalable business intelligence to drive data-informed decision-making.</p>
 </section>
 <section id="professional-experience" class="level2">
 <h2 class="anchored" data-anchor-id="professional-experience"><strong>Professional Experience</strong></h2>

@@ -73,6 +73,11 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
       window.localStorage.setItem('quarto-color-scheme', 'alternate'); // 'alternate' = dark in Quarto
     }
   })();
+  // Apply language class to body BEFORE paint to avoid flash of both languages
+  (function() {
+    var lang = window.localStorage.getItem('portfolio-lang') || 'es';
+    document.documentElement.className += ' lang-' + lang;
+  })();
 </script>
 
 
@@ -297,7 +302,7 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <!-- ═══════════════════════════════════════════════
      COLECCIONES BANNER
 ═══════════════════════════════════════════════ -->
-<section class="section-wrapper">
+<section class="section-wrapper" style="padding-top: 6rem; padding-bottom: 6rem;">
   <a href="https://rodriguinstudio.com.ar/productos/" target="_blank" class="art-banner">
     <img src="www/Monotemático 350.jpg" alt="Colecciones Rodriguin Studio">
     <div class="art-banner-overlay"></div>
