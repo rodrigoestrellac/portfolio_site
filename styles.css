@@ -735,7 +735,7 @@ body:has(button:hover) #cursor-ring {
 .quarto-about-broadside .about-entity {
   min-height: 400px;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
 }
 .cv-intro {
   font-size: 1.1rem;
@@ -752,6 +752,19 @@ body:has(button:hover) #cursor-ring {
   margin-top: 2.5rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--border);
+}
+/* Code tags in about page */
+.about-main code {
+  background: rgba(255,255,255,0.08);
+  color: var(--accent);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+body.quarto-dark .about-main code {
+  background: rgba(0,0,0,0.45);
+  color: #7da8f5;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 .about-main .quarto-title-block {
   display: block;
