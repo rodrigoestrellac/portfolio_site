@@ -31,12 +31,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b8da9d65c9d97290911df2f0aea6651a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-91eca00a7719443016f938984787150e.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9d5df25e2b2b9079e02beba5abaf600f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e30143b046ff6bc915205e1862ed9a99.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-61ebbfa0dcdc24b58f5b791e4132f2c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b120b0f479cc00862f263934573c50a5.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Sin resultados",
@@ -62,6 +62,18 @@ gtag('js', new Date());
 gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&amp;family=Space+Grotesk:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<script>
+  // Force dark mode as default (only if user has never visited)
+  (function() {
+    var stored = window.localStorage.getItem('quarto-color-scheme');
+    if (!stored) {
+      window.localStorage.setItem('quarto-color-scheme', 'alternate'); // 'alternate' = dark in Quarto
+    }
+  })();
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -98,25 +110,17 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-arte-algorítmico" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Arte Algorítmico</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-arte" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Arte</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-arte-algorítmico">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-arte">    
         <li>
     <a class="dropdown-item" href="./generativeArt.html">
  <span class="dropdown-text">Arte Algorítmico</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./flowingFields.html">
- <span class="dropdown-text">Flowing Fields</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./strangerEarths.html">
- <span class="dropdown-text">Stranger Earths</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./wabiSabi_journey_to_theEast.html">
- <span class="dropdown-text">Viaje del Wabi Sabi al Oriente</span></a>
+    <a class="dropdown-item" href="https://rodriguinstudio.com.ar/">
+ <span class="dropdown-text">Rodriguin Studio ↗</span></a>
   </li>  
     </ul>
   </li>
@@ -165,106 +169,162 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </header>
 
 
-<!-- particles.js container -->
-<div id="particles-js">
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="intro">
+  <div class="hero-inner">
+    <p class="hero-label">Data Science · BI · Algorithmic Art</p>
+    <h1 class="hero-name">Rodrigo<br><em>Estrella</em></h1>
+    <p class="hero-tagline">
+      <span data-lang-es="">Economista, <span class="tag-accent">Data Leader</span> y Artista Algorítmico.
+      Transformo datos en decisiones y código en arte.</span>
+      <span data-lang-en="">Economist, <span class="tag-accent">Data Leader</span> &amp; Algorithmic Artist.
+      I turn data into decisions and code into art.</span>
+      <span class="cursor-blink"></span>
+    </p>
+    <div class="hero-cta">
+      <a href="#proyectos" class="btn-primary-custom">
+        <span data-lang-es="">Ver proyectos</span>
+        <span data-lang-en="">See projects</span>
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </a>
+      <a href="about.html" class="btn-ghost-custom">CV</a>
+    </div>
+  </div>
 
-</div>
-<!-- ::: {#background} -->
-<!-- ::: -->
-<!-- ```{=html} -->
-<!-- <script src="js/d3.min.js"></script> -->
-<!-- <script src="js/seeingTheoryHome.js"></script> -->
-<!-- ``` -->
-<script src="js/particles.min.js"></script>
-<script>
-         /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-    particlesJS.load('particles-js', 'particles.json', function() {
-      console.log('callback - particles.js config loaded');
-    });
-    </script>
-<div class="grid">
-<div class="g-col-12 intro">
-<!-- ::::: {.intro-screen} -->
-<div class="intro-wrapper animSlideIn">
-<div class="intro-title animFadeIn">
-<p>Hola ! Soy Rodrigo Estrella</p>
-</div>
-<div class="subtitle-wrapper">
-<div class="subtitle-wrap animFadeIn">
-<p>Economista, futbolista amateur, desarrollador BI, artista algorítmico, fan de R y la ciencia de datos.</p>
-</div>
-</div>
-</div>
-<div class="scroll-down animFadeIn">
-<p><a href="#proyectos" height="50"><img src="www/bottom-arrow.svg" class="img-fluid"></a></p>
-</div>
-<!-- ::::: -->
-</div>
-</div>
-<!-- <div style = "height: 500px"> -->
-<!-- </div> -->
-<div id="proyectos" class="animFadeIn g-col-12">
-<div class="title animFadeIn">
-<p>Estos son mis side projects</p>
-</div>
-<div class="proyectos-img">
-<!-- ::: {.wine} -->
-<!-- ::::: {.oval} -->
-<!-- ::::: -->
-<!-- <a href = "https://q-bebidas-2-l3i26aq4ga-uc.a.run.app/" target= "_blank"> -->
-<!-- ![](www/handDrawn glassWine Reverse.png){height="350"} -->
-<!-- ::::: {.wine-title} -->
-<!-- Monitor de Bebidas -->
-<!-- ::::: -->
-<!-- </a> -->
-<!-- ::: -->
-<div class="wine">
-<div class="oval">
+  <div class="scroll-indicator">
+    <span class="scroll-line"></span>
+    Scroll
+  </div>
+</section>
 
-</div>
-<p><a href="https://q-bebidas-2-l3i26aq4ga-uc.a.run.app/" target="_blank"></a></p><a href="https://q-bebidas-2-l3i26aq4ga-uc.a.run.app/" target="_blank">
-<p><img src="www/handDrawn glassWine Reverse.png" height="250"></p>
-<div class="wine-title">
-<p>Monitor de Bebidas</p>
-</div>
-</a><p><a href="https://q-bebidas-2-l3i26aq4ga-uc.a.run.app/" target="_blank"></a></p>
-</div>
-<div class="robot">
-<div class="reversedOval">
+<!-- ═══════════════════════════════════════════════
+     PROYECTOS
+═══════════════════════════════════════════════ -->
+<section id="proyectos" class="section-wrapper">
+  <div class="section-header">
+    <span class="section-label">// 01 — <span data-lang-es="">Proyectos</span><span data-lang-en="">Projects</span></span>
+    <h2 class="section-title">
+      <span data-lang-es="">Side <em>projects</em></span>
+      <span data-lang-en="">Side <em>projects</em></span>
+    </h2>
+  </div>
 
-</div>
-<p><a href="https://generative-atelier-demo-l3i26aq4ga-uc.a.run.app" target="_blank"></a></p><a href="https://generative-atelier-demo-l3i26aq4ga-uc.a.run.app" target="_blank">
-<p><img src="www/painter_robot.png" height="250"></p>
-<div class="robot-title">
-<p>Generative App</p>
-</div>
-</a><p><a href="https://generative-atelier-demo-l3i26aq4ga-uc.a.run.app" target="_blank"></a></p>
-</div>
-<div class="carScraper">
-<div class="reversedOval">
+  <div class="projects-grid">
 
-</div>
-<p><a href="https://car-scraper-app-l3i26aq4ga-uc.a.run.app/#!/" target="_blank"></a></p><a href="https://car-scraper-app-l3i26aq4ga-uc.a.run.app/#!/" target="_blank">
-<p><img src="www/robot searching cars portfolio.png" height="250"></p>
-<div class="robot-title">
-<p>Car Scraper</p>
-</div>
-</a><p><a href="https://car-scraper-app-l3i26aq4ga-uc.a.run.app/#!/" target="_blank"></a></p>
-</div>
-<div class="preciosClaros">
-<div class="shopperOval">
+    <!-- Atelier Algoritmico -->
+    <a href="https://app.rodriguinstudio.com.ar/#!/" target="_blank" class="project-card">
+      <img class="project-card-img" src="www/painter_robot.png" alt="Algorithmic Atelier">
+      <div class="project-card-body">
+        <span class="project-card-tag">Shiny · Algorithmic Art</span>
+        <h3 class="project-card-title">
+          <span data-lang-es="">Atelier Algorítmico</span>
+          <span data-lang-en="">Algorithmic Atelier</span>
+        </h3>
+        <p class="project-card-desc">
+          <span data-lang-es="">Aplicación para crear arte algorítmico en tiempo real. Generá obras únicas parametrizando algoritmos visuales.</span>
+          <span data-lang-en="">App to create algorithmic art in real time. Generate unique pieces by tweaking visual algorithm parameters.</span>
+        </p>
+        <span class="project-card-link">
+          <span data-lang-es="">Ver app</span><span data-lang-en="">View app</span>
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </span>
+      </div>
+    </a>
 
-</div>
-<p><a href="https://precios-claros-demoapp-l3i26aq4ga-uc.a.run.app/" target="_blank"></a></p><a href="https://precios-claros-demoapp-l3i26aq4ga-uc.a.run.app/" target="_blank">
-<p><img src="www/shopperRobotReverse.png" height="250"></p>
-<div class="pxc-title">
-<p>Precios Claros App</p>
-</div>
-</a><p><a href="https://precios-claros-demoapp-l3i26aq4ga-uc.a.run.app/" target="_blank"></a></p>
-</div>
-</div>
-</div>
-<script src="js/movement.js"></script>
+    <!-- Car Scraper -->
+    <a href="https://car-scraper-app-l3i26aq4ga-uc.a.run.app/#!/" target="_blank" class="project-card">
+      <img class="project-card-img" src="www/robot searching cars portfolio.png" alt="Car Scraper">
+      <div class="project-card-body">
+        <span class="project-card-tag">Scraping · R · Shiny</span>
+        <h3 class="project-card-title">Car Scraper</h3>
+        <p class="project-card-desc">
+          <span data-lang-es="">Robot que rastrea precios del mercado automotriz y los presenta en un dashboard analítico para comparar tendencias.</span>
+          <span data-lang-en="">Bot that scrapes the automotive market and presents prices in an analytics dashboard to compare trends.</span>
+        </p>
+        <span class="project-card-link">
+          <span data-lang-es="">Ver app</span><span data-lang-en="">View app</span>
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </span>
+      </div>
+    </a>
+
+    <!-- Precios Claros -->
+    <a href="https://precios-claros-demoapp-l3i26aq4ga-uc.a.run.app/" target="_blank" class="project-card">
+      <img class="project-card-img" src="www/shopperRobotReverse.png" alt="Precios Claros App">
+      <div class="project-card-body">
+        <span class="project-card-tag">Data · R · Shiny</span>
+        <h3 class="project-card-title">
+          <span data-lang-es="">Precios Claros App</span>
+          <span data-lang-en="">Precios Claros App</span>
+        </h3>
+        <p class="project-card-desc">
+          <span data-lang-es="">Análisis de datos abiertos de precios de supermercados en Argentina. Exploración y comparación de costos por categoría.</span>
+          <span data-lang-en="">Open data analysis of supermarket prices across Argentina. Explore and compare costs by product category.</span>
+        </p>
+        <span class="project-card-link">
+          <span data-lang-es="">Ver app</span><span data-lang-en="">View app</span>
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </span>
+      </div>
+    </a>
+
+  <!-- Monitor de Bebidas -->
+    <a href="https://q-bebidas-2-l3i26aq4ga-uc.a.run.app/" target="_blank" class="project-card">
+      <img class="project-card-img" src="www/handDrawn glassWine Reverse.png" alt="Monitor de Bebidas">
+      <div class="project-card-body">
+        <span class="project-card-tag">Shiny · R</span>
+        <h3 class="project-card-title">
+          <span data-lang-es="">Monitor de Bebidas</span>
+          <span data-lang-en="">Wine Monitor</span>
+        </h3>
+        <p class="project-card-desc">
+          <span data-lang-es="">Dashboard interactivo para seguimiento y análisis de consumo de bebidas. Visualizaciones en tiempo real con R Shiny.</span>
+          <span data-lang-en="">Interactive dashboard for tracking and analyzing beverage consumption data. Real-time visualizations built with R Shiny.</span>
+        </p>
+        <span class="project-card-link">
+          <span data-lang-es="">Ver app</span><span data-lang-en="">View app</span>
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </span>
+      </div>
+    </a>
+
+    
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ARTE ALGORÍTMICO
+═══════════════════════════════════════════════ -->
+<section class="section-wrapper">
+  <div class="section-header">
+    <span class="section-label">// 02 — <span data-lang-es="">Arte</span><span data-lang-en="">Art</span></span>
+    <h2 class="section-title">Rodriguin <em>Studio</em></h2>
+  </div>
+
+  <a href="https://rodriguinstudio.com.ar/" target="_blank" class="art-banner">
+    <img src="www/Ritmos Urbanos 24 fliped.jpg" alt="Rodriguin Studio — Arte Algorítmico">
+    <div class="art-banner-overlay"></div>
+    <div class="art-banner-content">
+      <span class="section-label">
+        <span data-lang-es="">Arte Algorítmico · Generative Art</span>
+        <span data-lang-en="">Algorithmic Art · Generative Art</span>
+      </span>
+        <h3 class="art-banner-title">Rodriguin <br> Studio</h3>
+      <p class="art-banner-sub">
+        <span data-lang-es="">Donde el código se convierte en arte. Ritmos Urbanos, Viaje del Wabi Sabi al Oriente, Apollo's Blues y más colecciones algorítmicas.</span>
+        <span data-lang-en="">Where code becomes art. Ritmos Urbanos, Viaje del Wabi Sabi al Oriente, Apollo's Blues and more algorithmic collections.</span>
+      </p>
+      <span class="art-banner-cta">
+        <span data-lang-es="">Visitar estudio</span>
+        <span data-lang-en="">Visit studio</span>
+        <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </span>
+    </div>
+  </a>
+</section>
+<script src="js/app.js"></script>
 
 
 
@@ -839,7 +899,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Esta página está hecha con <a href="https://quarto.org/">Quarto</a></p>
+<p>Hecho con <a href="https://quarto.org/">Quarto</a> · © 2025 Rodrigo Estrella</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

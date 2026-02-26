@@ -30,12 +30,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b8da9d65c9d97290911df2f0aea6651a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-91eca00a7719443016f938984787150e.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9d5df25e2b2b9079e02beba5abaf600f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e30143b046ff6bc915205e1862ed9a99.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-61ebbfa0dcdc24b58f5b791e4132f2c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b120b0f479cc00862f263934573c50a5.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Sin resultados",
@@ -61,6 +61,18 @@ gtag('js', new Date());
 gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&amp;family=Space+Grotesk:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<script>
+  // Force dark mode as default (only if user has never visited)
+  (function() {
+    var stored = window.localStorage.getItem('quarto-color-scheme');
+    if (!stored) {
+      window.localStorage.setItem('quarto-color-scheme', 'alternate'); // 'alternate' = dark in Quarto
+    }
+  })();
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -97,25 +109,17 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-arte-algorítmico" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Arte Algorítmico</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-arte" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Arte</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-arte-algorítmico">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-arte">    
         <li>
     <a class="dropdown-item" href="./generativeArt.html">
  <span class="dropdown-text">Arte Algorítmico</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./flowingFields.html">
- <span class="dropdown-text">Flowing Fields</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./strangerEarths.html">
- <span class="dropdown-text">Stranger Earths</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./wabiSabi_journey_to_theEast.html">
- <span class="dropdown-text">Viaje del Wabi Sabi al Oriente</span></a>
+    <a class="dropdown-item" href="https://rodriguinstudio.com.ar/">
+ <span class="dropdown-text">Rodriguin Studio ↗</span></a>
   </li>  
     </ul>
   </li>
@@ -155,22 +159,48 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
+<script src="js/app.js"></script>
 <div class="animFadeIn">
 <div class="cv-intro">
-<p>Soy Magíster en Economía por la Universidad Alberto Hurtado y Data Leader en #tga. Me interesan los temas relacionados con Investigación Operativa, Inteligencia de Negocios y Ciencia de Datos. Tengo experiencia en análisis de datos y aplicación de modelos estadísticos y econométricos para la industria del retail y la industria inmobiliaria. Fanático de R, lo uso para todo: desde arte algorítmico a aplicaciones en Shiny, pasando por estimaciones de demanda y modelos de machine learning.</p>
+<p><span data-lang-es="">Data Scientist &amp; BI Developer con Magíster en Economía y más de 5 años de experiencia construyendo soluciones analíticas de alto impacto. Especialista en <strong>R, Shiny y SQL</strong>. Apasionado por el puente entre la econometría y el desarrollo de software escalable.</span> <span data-lang-en="">Data Scientist &amp; BI Developer with an MA in Economics and over 5 years of experience delivering high-impact analytical solutions. Specialist in <strong>R, Shiny, and SQL</strong>, focused on building end-to-end data products that drive data-informed decision-making.</span></p>
 </div>
-<section id="educación" class="level2">
-<h2 data-anchor-id="educación">Educación</h2>
-<p>Universidad Alberto Hurtado | Santiago, CL <br> <strong>Magíster en Economía</strong> | Ago 2018 - Dic 2019</p>
-<p>Universidad Nacional de Cuyo | Mendoza, AR <br> <strong>Licenciado en Economía</strong> | Mar 2010 - Nov 2017</p>
+<section id="experienciaexperience" class="level2">
+<h2 data-anchor-id="experienciaexperience"><span data-lang-es="">Experiencia</span><span data-lang-en="">Experience</span></h2>
+<p><strong>TGA | BPtL</strong> — <em>BPtL Intelligence Leader</em> | Jun 2021 – <span data-lang-es="">Presente</span><span data-lang-en="">Present</span></p>
+<ul>
+<li><span data-lang-es="">Lideré la transformación del producto core reemplazando flujos manuales en Excel por pipelines ETL automatizados en R y cron jobs, reduciendo el tiempo de generación de reportes un <strong>90%</strong>.</span><span data-lang-en="">Led the transformation of the organization’s core product by replacing manual Excel workflows with automated ETL pipelines using R and cron jobs, reducing report generation time by <strong>90%</strong>.</span></li>
+<li><span data-lang-es="">Desarrollé un framework de regresión automatizado con <code>tidymodels</code>, reduciendo errores manuales un <strong>70%</strong> y mejorando la precisión del modelo un <strong>15%</strong>.</span><span data-lang-en="">Developed an automated regression analysis framework using <code>tidymodels</code>, decreasing manual errors by <strong>70%</strong> and improving model precision by <strong>15%</strong>.</span></li>
+<li><span data-lang-es="">Construí 4 dashboards Shiny interactivos con análisis de texto automatizado y modelos predictivos, permitiendo generar insights <strong>2× más rápido</strong>.</span><span data-lang-en="">Engineered 4 interactive Shiny dashboards featuring automated text analysis and predictive modeling, enabling stakeholders to generate custom insights <strong>2× faster</strong>.</span></li>
+<li><span data-lang-es="">Integré la API de ChatGPT en herramientas internas para automatizar resúmenes de texto y mejorar el data storytelling.</span><span data-lang-en="">Integrated ChatGPT API into internal reporting tools to automate text summarization and enhance data storytelling.</span></li>
+</ul>
+<p><strong>Millán SA</strong> — <em>BI Consultant</em> | Jan 2020 – <span data-lang-es="">Presente</span><span data-lang-en="">Present</span></p>
+<ul>
+<li><span data-lang-es="">Implementé Power BI en múltiples unidades de negocio; el dashboard de monitoreo de stock-loss redujo el faltante un <strong>10%</strong>.</span><span data-lang-en="">Implemented Power BI across multiple business units; flagship stock-loss monitoring dashboard led to a <strong>10%</strong> reduction in inventory shrinkage.</span></li>
+<li><span data-lang-es="">Estimaciones de demanda para productos de supermercado usando modelos de elección discreta en R.</span><span data-lang-en="">Performed complex demand estimations for supermarket retail products using discrete choice models in R.</span></li>
+<li><span data-lang-es="">Desarrollé una aplicación Shiny con backend MongoDB para ingesta automatizada de datos desde archivos de texto.</span><span data-lang-en="">Developed a custom Shiny application with a MongoDB backend for automated data ingestion and reporting.</span></li>
+<li><span data-lang-es="">Construí un motor de web scraping para monitorear precios de competidores en tiempo real.</span><span data-lang-en="">Built a web scraping engine to monitor competitor pricing in real-time, enabling dynamic pricing strategy adjustments.</span></li>
+</ul>
 </section>
-<section id="experiencia" class="level2">
-<h2 data-anchor-id="experiencia">Experiencia</h2>
-<p><strong>#tga</strong> | <em>Data Leader</em> | Jun 2023 - actualidad</p>
-<p><strong>#tga</strong> | <em>Reporting Analyst - Developer</em> | May 2022 - May 2023</p>
-<p><strong>#tga</strong> | <em>Reporting Analyst</em> | Jun 2021 - May 2022</p>
-<p><strong>Millán SA</strong> | <em>Analista de Negocios</em> | Feb 2017 - actualidad</p>
-<p><strong>Ualabee</strong> | <em>Data Analyst</em> | Ene 2021 - Jun 2021</p>
+<section id="habilidadesskills" class="level2">
+<h2 data-anchor-id="habilidadesskills"><span data-lang-es="">Habilidades</span><span data-lang-en="">Skills</span></h2>
+<p><strong><span data-lang-es="">Programación</span><span data-lang-en="">Programming</span>:</strong> R (Shiny, Plumber, Tidyverse, Tidymodels), SQL (Advanced), Python, Stata</p>
+<p><strong><span data-lang-es="">Ingeniería de datos</span><span data-lang-en="">Data Engineering</span>:</strong> Docker, MongoDB, GitHub/Git, Web Scraping (rvest, RSelenium), Cron Jobs</p>
+<p><strong><span data-lang-es="">Visualización</span><span data-lang-en="">Visualization</span> &amp; BI:</strong> Power BI, Shiny (Fluent/Router), Highcharter, Plotly, CSS/HTML</p>
+<p><strong><span data-lang-es="">Economía</span><span data-lang-en="">Economics</span>:</strong> <span data-lang-es="">Econometría, Modelos de Elección Discreta, Estimación de Demanda</span><span data-lang-en="">Econometrics, Discrete Choice Models, Demand Estimation</span></p>
+<p><strong><span data-lang-es="">Idiomas</span><span data-lang-en="">Languages</span>:</strong> <span data-lang-es="">Inglés (Avanzado) · Italiano (Intermedio) · Español (Nativo)</span><span data-lang-en="">English (Advanced) · Italian (Intermediate) · Spanish (Native)</span></p>
+</section>
+<section id="proyectos-destacadosfeatured-projects" class="level2">
+<h2 data-anchor-id="proyectos-destacadosfeatured-projects"><span data-lang-es="">Proyectos destacados</span><span data-lang-en="">Featured Projects</span></h2>
+<ul>
+<li><strong><a href="https://generative-atelier-demo-l3i26aq4ga-uc.a.run.app/">Algorithmic Atelier</a>:</strong> <span data-lang-es="">UI/UX sofisticada construida con <code>shiny.fluent</code> y <code>shiny.router</code>, con internacionalización (<code>shiny.i18n</code>).</span><span data-lang-en="">Sophisticated UI/UX built with <code>shiny.fluent</code> and <code>shiny.router</code>, showcasing high-end R development and internationalization.</span></li>
+<li><strong><a href="https://car-scraper-app-l3i26aq4ga-uc.a.run.app/#!/">Car Scraper &amp; Assistant</a>:</strong> <span data-lang-es="">Herramienta end-to-end con scraping en tiempo real, consumo de APIs y asistente de chat con OpenAI.</span><span data-lang-en="">End-to-end tool integrating real-time web scraping, API consumption (exchange rates), and an OpenAI-powered chat assistant.</span></li>
+<li><strong><a href="https://q-bebidas-2-l3i26aq4ga-uc.a.run.app/">Wine Monitor</a>:</strong> <span data-lang-es="">App full-stack con scrapers Docker en GCP, MongoDB y Shiny para monitoreo e-commerce.</span><span data-lang-en="">Full-stack monitoring app using Dockerized scrapers on GCP, MongoDB, and Shiny to track e-commerce data.</span></li>
+</ul>
+</section>
+<section id="educacióneducation" class="level2">
+<h2 data-anchor-id="educacióneducation"><span data-lang-es="">Educación</span><span data-lang-en="">Education</span></h2>
+<p><strong><span data-lang-es="">Magíster en Economía</span><span data-lang-en="">MA in Economics</span></strong> — Universidad Alberto Hurtado, Chile (2019)</p>
+<p><strong><span data-lang-es="">Licenciado en Economía</span><span data-lang-en="">Bachelor’s Degree in Economics</span></strong> — Universidad Nacional de Cuyo, Argentina (2017)</p>
 </section>
 </div>
 
@@ -756,7 +786,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Esta página está hecha con <a href="https://quarto.org/">Quarto</a></p>
+<p>Hecho con <a href="https://quarto.org/">Quarto</a> · © 2025 Rodrigo Estrella</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
