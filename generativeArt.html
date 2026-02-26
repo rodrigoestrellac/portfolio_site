@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Arte Generativo – Rodrigo Estrella</title>
+<title>Arte Algorítmico – Rodrigo Estrella</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,12 +31,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b8da9d65c9d97290911df2f0aea6651a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-91eca00a7719443016f938984787150e.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9d5df25e2b2b9079e02beba5abaf600f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e30143b046ff6bc915205e1862ed9a99.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-61ebbfa0dcdc24b58f5b791e4132f2c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b120b0f479cc00862f263934573c50a5.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Sin resultados",
@@ -62,10 +62,22 @@ gtag('js', new Date());
 gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&amp;family=Space+Grotesk:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<script>
+  // Force dark mode as default (only if user has never visited)
+  (function() {
+    var stored = window.localStorage.getItem('quarto-color-scheme');
+    if (!stored) {
+      window.localStorage.setItem('quarto-color-scheme', 'alternate'); // 'alternate' = dark in Quarto
+    }
+  })();
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Arte Generativo – Rodrigo Estrella">
+<meta property="og:title" content="Arte Algorítmico – Rodrigo Estrella">
 <meta property="og:site_name" content="Rodrigo Estrella">
 </head>
 
@@ -98,25 +110,17 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-arte-algorítmico" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Arte Algorítmico</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-arte" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Arte</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-arte-algorítmico">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-arte">    
         <li>
     <a class="dropdown-item" href="./generativeArt.html">
  <span class="dropdown-text">Arte Algorítmico</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./flowingFields.html">
- <span class="dropdown-text">Flowing Fields</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./strangerEarths.html">
- <span class="dropdown-text">Stranger Earths</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./wabiSabi_journey_to_theEast.html">
- <span class="dropdown-text">Viaje del Wabi Sabi al Oriente</span></a>
+    <a class="dropdown-item" href="https://rodriguinstudio.com.ar/">
+ <span class="dropdown-text">Rodriguin Studio ↗</span></a>
   </li>  
     </ul>
   </li>
@@ -148,7 +152,7 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Arte Generativo</h1>
+<h1 class="title">Arte Algorítmico</h1>
 </div>
 
 
@@ -165,122 +169,156 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 </header>
 
 
-<div class="intro-screen-generative2">
-<div class="grid">
-<div class="g-col-12 intro">
-<!-- ::::: {.intro-screen} -->
-<div class="intro-wrapper animSlideIn">
-<div class="intro-title animFadeIn">
-<p>Así es…</p>
-</div>
-<div class="subtitle-wrapper">
-<div class="subtitle-wrap animFadeIn">
-<p>También hago un poquito de arte algorítmico, abajo les cuento qué es y les dejo algunas de mis favoritas. El resto las pueden ver en mi <a href="https://opensea.io/es/Rodriguin_art">perfil de OpenSea</a></p>
-</div>
-</div>
-</div>
-<div class="scroll-down animFadeIn">
-<p><a href="#ExplanationAnchor"><img src="www/bottom-arrow.svg" class="img-fluid"></a></p>
-</div>
-<!-- ::::: -->
-</div>
-</div>
-<div id="ExplanationAnchor">
+<script src="js/app.js"></script>
 
-</div>
-<div id="GenArtExplanation" class="animFadeIn">
-<p>El arte algorítmico, también conocido como arte generativo es una forma de expresión artística que utiliza algoritmos, procesos computacionales y sistemas automáticos para crear obras de arte. En lugar de depender exclusivamente de la mano del artista, el generativismo implica la creación de reglas y parámetros que guían la producción de imágenes, música, o cualquier otra manifestación artística. Estos algoritmos pueden generar resultados únicos e impredecibles, dando lugar a obras que van más allá de la capacidad creativa humana convencional. El arte algorítmico refleja la intersección entre la creatividad humana y la potencia computacional, explorando nuevas formas de expresión artística que desafían las convenciones tradicionales y abrazan la complejidad emergente a través de la programación y la interacción dinámica. Lo más destacable, en mi humilde opinión, es que involucra muchísima aleatoriedad. Así, es prácticamente imposible obtener dos obras iguales.</p>
-<p>En palabras del artista Manuel Larino: <em>“El arte generativo es el equilibrio entre la intención y la imprevisibilidad. Es la magia que surge cuando dejas espacio para que suceda lo inesperado.”</em></p>
-<div class="{GenArtExplanation-despedida}">
-<p>Ahora sí, mis favoritos…</p>
-</div>
-</div>
-<!-- ::: grid -->
-<div id="favoritos" class="animFadeIn g-col-12">
-<div class="wrapper-art">
-<div class="one">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/stranger_earths_withAstronaut_number112.png"><img src="www/stranger_earths_withAstronaut_number112.png" height="500" alt="Stranger Earths" class="figure-img"></a></p>
-<figcaption>Stranger Earths</figcaption>
-</figure>
-</div>
-</div>
-<div class="two">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/stranger_earths_withAstronaut_number117.png"><img src="www/stranger_earths_withAstronaut_number117.png" height="200" alt="Stranger Earths" class="figure-img"></a></p>
-<figcaption>Stranger Earths</figcaption>
-</figure>
-</div>
-</div>
-<div class="three">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/flowing arcade.jpg"><img src="www/flowing arcade.jpg" height="200" alt="Flowing Fields" class="figure-img"></a></p>
-<figcaption>Flowing Fields</figcaption>
-</figure>
-</div>
-</div>
-<div class="four">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/warholian_monkeys.jpeg"><img src="www/warholian_monkeys.jpeg" height="200" alt="Warholian Monkeys" class="figure-img"></a></p>
-<figcaption>Warholian Monkeys</figcaption>
-</figure>
-</div>
-</div>
-<div class="five">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/a_Pochis_Life_lilito7_rodriguin8_2023-06-28_artwork.jpeg"><img src="www/a_Pochis_Life_lilito7_rodriguin8_2023-06-28_artwork.jpeg" height="200" alt="A Pochi’s Life" class="figure-img"></a></p>
-<figcaption>A Pochi’s Life</figcaption>
-</figure>
-</div>
-</div>
-<div class="six">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/cellularAutomata_artwork (10).jpeg"><img src="www/cellularAutomata_artwork (10).jpeg" height="200" alt="Cellular Automata" class="figure-img"></a></p>
-<figcaption>Cellular Automata</figcaption>
-</figure>
-</div>
-</div>
-<div class="seven">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/mondrianomies_artwork_(12).jpeg"><img src="www/mondrianomies_artwork_(12).jpeg" height="450" alt="Mondrianomies" class="figure-img"></a></p>
-<figcaption>Mondrianomies</figcaption>
-</figure>
-</div>
-</div>
-<div class="eight">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/strangerEarthsPrint.jpg"><img src="www/strangerEarthsPrint.jpg" height="240" alt="Stranger Earths print" class="figure-img"></a></p>
-<figcaption>Stranger Earths print</figcaption>
-</figure>
-</div>
-</div>
-<div class="nine">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/monkeys_prints.jpg"><img src="www/monkeys_prints.jpg" height="240" alt="Warholian Monekys prints" class="figure-img"></a></p>
-<figcaption>Warholian Monekys prints</figcaption>
-</figure>
-</div>
-</div>
-<div class="ten">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="www/flowingFieldsPrint.jpg"><img src="www/flowingFieldsPrint.jpg" class="img-fluid figure-img" width="500" alt="Flowing Fields print"></a></p>
-<figcaption>Flowing Fields print</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="intro">
+  <div class="hero-inner">
+    <p class="hero-label">Rodriguin Studio · <span data-lang-es="">Arte Generativo</span><span data-lang-en="">Generative Art</span></p>
+    <h1 class="hero-name hero-name-wide">
+      <span data-lang-es="">El código<br><em>es mi pincel</em></span>
+      <span data-lang-en="">Code<br><em>is my brush</em></span>
+    </h1>
+    <p class="hero-tagline">
+      <span data-lang-es="">Arte algorítmico: donde la matemática se alinea perfectamente con la emoción.</span>
+      <span data-lang-en="">Algorithmic art: where mathematics aligns perfectly with emotion.</span>
+      <span class="cursor-blink"></span>
+    </p>
+    <div class="hero-cta">
+      <a href="https://rodriguinstudio.com.ar/" target="_blank" class="btn-primary-custom">
+        <span data-lang-es="">Ver Rodriguin Studio</span>
+        <span data-lang-en="">Visit Rodriguin Studio</span>
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </a>
+      <a href="#que-es" class="btn-ghost-custom">
+        <span data-lang-es="">¿Qué es?</span>
+        <span data-lang-en="">What is it?</span>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span class="scroll-line"></span>
+    Scroll
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     QUÉ ES
+═══════════════════════════════════════════════ -->
+<section id="que-es" class="section-wrapper">
+  <div class="section-header">
+    <span class="section-label">// 01 — <span data-lang-es="">Definición</span><span data-lang-en="">Definition</span></span>
+    <h2 class="section-title">
+      <span data-lang-es="">¿Qué es el Arte <em>Algorítmico</em>?</span>
+      <span data-lang-en="">What is <em>Algorithmic Art</em>?</span>
+    </h2>
+  </div>
+
+  <div class="art-explainer-grid">
+
+    <div class="art-explainer-text">
+      <span data-lang-es="">
+        <p>En Rodriguin Studio no pintamos sobre un lienzo vacío. Para cada colección, escribo un sistema de reglas específico —un algoritmo— que define un lenguaje visual único.</p>
+        <p>Ese código es mi herramienta. Pero no es estático: es un instrumento que debo aprender a tocar.</p>
+        <p>A diferencia de la Inteligencia Artificial generativa, aquí <strong>no hay cajas negras</strong>. Todo es lógica construida por humanos. El código multiplica mi capacidad de probar variaciones, pero soy yo quien construye la herramienta y decide qué resultado merece ser materializado en el mundo físico.</p>
+      </span>
+      <span data-lang-en="">
+        <p>At Rodriguin Studio, we don't paint on a blank canvas. For each collection, I write a specific rule system —an algorithm— that defines a unique visual language.</p>
+        <p>That code is my tool. But it is not static: it is an instrument I must learn to play.</p>
+        <p>Unlike generative AI, there are <strong>no black boxes</strong> here. Everything is logic built by humans. The code multiplies my ability to test variations, but I am the one who builds the tool and decides which result deserves to be materialized in the physical world.</p>
+      </span>
+    </div>
+
+    <blockquote class="art-quote blockquote">
+      <p>
+        <span data-lang-es="">"No le pido a una máquina que imagine. Diseño sistemas matemáticos para crear belleza."</span>
+        <span data-lang-en="">"I don't ask a machine to imagine. I design mathematical systems to create beauty."</span>
+      </p>
+    </blockquote>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CÓMO FUNCIONA
+═══════════════════════════════════════════════ -->
+<section class="section-wrapper">
+  <div class="section-header">
+    <span class="section-label">// 02 — <span data-lang-es="">Proceso</span><span data-lang-en="">Process</span></span>
+    <h2 class="section-title">
+      <span data-lang-es="">La exploración <em>dentro del caos</em></span>
+      <span data-lang-en="">Exploring <em>within the chaos</em></span>
+    </h2>
+  </div>
+
+  <div class="art-process-grid">
+
+    <div class="art-process-card">
+      <span class="art-process-icon">01</span>
+      <h3><span data-lang-es="">El Algoritmo</span><span data-lang-en="">The Algorithm</span></h3>
+      <p>
+        <span data-lang-es="">Diseño un sistema de reglas que define la gramática visual de cada colección: formas, flujos, paletas, densidades.</span>
+        <span data-lang-en="">I design a rule system that defines the visual grammar of each collection: shapes, flows, palettes, densities.</span>
+      </p>
+    </div>
+
+    <div class="art-process-card">
+      <span class="art-process-icon">02</span>
+      <h3><span data-lang-es="">La Exploración</span><span data-lang-en="">The Exploration</span></h3>
+      <p>
+        <span data-lang-es="">Como un sintetizador lleno de perillas: ajusto variables de densidad, paleta de colores y flujo para encontrar las joyas ocultas entre miles de combinaciones posibles.</span>
+        <span data-lang-en="">Like a synthesizer full of knobs: I adjust density, color palette, and flow variables to find hidden gems among thousands of possible combinations.</span>
+      </p>
+    </div>
+
+    <div class="art-process-card">
+      <span class="art-process-icon">03</span>
+      <h3><span data-lang-es="">La Selección</span><span data-lang-en="">The Selection</span></h3>
+      <p>
+        <span data-lang-es="">De miles de variaciones, elijo aquellas donde la matemática se alinea perfectamente con la emoción. Cada obra captura un momento único de esa exploración.</span>
+        <span data-lang-en="">From thousands of variations, I choose those where mathematics aligns perfectly with emotion. Each piece captures a unique moment of that exploration.</span>
+      </p>
+    </div>
+
+    <div class="art-process-card">
+      <span class="art-process-icon">04</span>
+      <h3><span data-lang-es="">La Materialización</span><span data-lang-en="">The Materialization</span></h3>
+      <p>
+        <span data-lang-es="">Las obras seleccionadas se imprimen con estándares Giclée —pigmentos minerales sobre papel de algodón— la máxima calidad de impresión Fine Art existente.</span>
+        <span data-lang-en="">Selected works are printed to Giclée standards —mineral pigments on cotton paper— the highest quality Fine Art printing available.</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     COLECCIONES BANNER
+═══════════════════════════════════════════════ -->
+<section class="section-wrapper">
+  <a href="https://rodriguinstudio.com.ar/productos/" target="_blank" class="art-banner">
+    <img src="www/Monotemático 350.jpg" alt="Colecciones Rodriguin Studio">
+    <div class="art-banner-overlay"></div>
+    <div class="art-banner-content">
+      <span class="section-label">Rodriguin Studio</span>
+      <h3 class="art-banner-title">
+        <span data-lang-es="">Ver todas las<br>colecciones</span>
+        <span data-lang-en="">Browse all<br>collections</span>
+      </h3>
+      <p class="art-banner-sub">
+        <span data-lang-es="">Monotemático, Flowing Fields, Ritmos Urbanos y más. Piezas únicas, ediciones limitadas e impresiones Fine Art.</span>
+        <span data-lang-en="">Monothematic, Flowing Fields, Urban Rythms and more. One-of-a-kind pieces, limited editions, and Fine Art prints.</span>
+      </p>
+      <span class="art-banner-cta">
+        <span data-lang-es="">Explorar colecciones</span>
+        <span data-lang-en="">Explore collections</span>
+        <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </span>
+    </div>
+  </a>
+</section>
 <!-- ::: -->
 
 
@@ -856,7 +894,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Esta página está hecha con <a href="https://quarto.org/">Quarto</a></p>
+<p>Hecho con <a href="https://quarto.org/">Quarto</a> · © 2025 Rodrigo Estrella</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
