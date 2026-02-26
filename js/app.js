@@ -187,43 +187,27 @@
   const btnEs = document.getElementById('btn-es');
   const btnEn = document.getElementById('btn-en');
 
-  // Restore saved lang
-  const saved = localStorage.getItem('portfolio-lang') || 'es';
-    function detectLang() {
-      let lang = 'es';
-      const langToggle = document.querySelector('.lang-toggle');
-      if (langToggle) {
-        lang = langToggle.classList.contains('active-es') ? 'es' : 'en';
-      }
-      return lang;
-    }
-    function applyOnRender() {
-      applyLang(detectLang());
-    }
-    applyOnRender();
-    document.addEventListener('quarto:pageRendered', applyOnRender);
-    applyLang(saved);
-
-  btnEs.addEventListener('click', () => applyLang('es'));
-  btnEn.addEventListener('click', () => applyLang('en'));
-
   function applyLang(lang) {
-    const esEls = document.querySelectorAll('[data-lang-es]');
-    const enEls = document.querySelectorAll('[data-lang-en]');
-
+    // Apply on both <html> and <body> to override the pre-paint class set in <head>
+    const targets = [document.documentElement, document.body];
     if (lang === 'en') {
-      esEls.forEach(el => el.classList.add('lang-hidden'));
-      enEls.forEach(el => el.classList.remove('lang-hidden'));
+      targets.forEach(el => { el.classList.add('lang-en'); el.classList.remove('lang-es'); });
       btnEs.classList.remove('active'); btnEs.setAttribute('aria-pressed','false');
       btnEn.classList.add('active');    btnEn.setAttribute('aria-pressed','true');
       document.documentElement.setAttribute('lang', 'en');
     } else {
-      enEls.forEach(el => el.classList.add('lang-hidden'));
-      esEls.forEach(el => el.classList.remove('lang-hidden'));
+      targets.forEach(el => { el.classList.remove('lang-en'); el.classList.add('lang-es'); });
       btnEn.classList.remove('active'); btnEn.setAttribute('aria-pressed','false');
       btnEs.classList.add('active');    btnEs.setAttribute('aria-pressed','true');
       document.documentElement.setAttribute('lang', 'es');
     }
     localStorage.setItem('portfolio-lang', lang);
   }
+
+  // Restore saved lang immediately on every page load
+  const saved = localStorage.getItem('portfolio-lang') || 'es';
+  applyLang(saved);
+
+  btnEs.addEventListener('click', () => applyLang('es'));
+  btnEn.addEventListener('click', () => applyLang('en'));
 })();

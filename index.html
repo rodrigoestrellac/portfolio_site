@@ -73,6 +73,11 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
       window.localStorage.setItem('quarto-color-scheme', 'alternate'); // 'alternate' = dark in Quarto
     }
   })();
+  // Apply language class to body BEFORE paint to avoid flash of both languages
+  (function() {
+    var lang = window.localStorage.getItem('portfolio-lang') || 'es';
+    document.documentElement.className += ' lang-' + lang;
+  })();
 </script>
 
 
@@ -297,7 +302,7 @@ gtag('config', 'G-VMG6412QZY', { 'anonymize_ip': true});
 <!-- ═══════════════════════════════════════════════
      ARTE ALGORÍTMICO
 ═══════════════════════════════════════════════ -->
-<section class="section-wrapper">
+<section class="section-wrapper" style="padding-bottom: 6rem;">
   <div class="section-header">
     <span class="section-label">// 02 — <span data-lang-es="">Arte</span><span data-lang-en="">Art</span></span>
     <h2 class="section-title">Rodriguin <em>Studio</em></h2>
