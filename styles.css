@@ -753,7 +753,7 @@ body:has(button:hover) #cursor-ring {
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--border);
 }
-/* Code tags in about page */
+/* Code tags — dark theme override */
 .about-main code {
   background: rgba(255,255,255,0.08);
   color: var(--accent);
@@ -761,10 +761,12 @@ body:has(button:hover) #cursor-ring {
   border-radius: 4px;
   font-size: 0.88em;
 }
-body.quarto-dark .about-main code {
-  background: rgba(0,0,0,0.45);
-  color: #7da8f5;
-  border: 1px solid rgba(255,255,255,0.08);
+body.quarto-dark .about-main code,
+body.quarto-dark code {
+  background: rgba(10, 14, 30, 0.85) !important;
+  color: #7da8f5 !important;
+  border: 1px solid rgba(125, 168, 245, 0.18) !important;
+  border-radius: 4px;
 }
 .about-main .quarto-title-block {
   display: block;
