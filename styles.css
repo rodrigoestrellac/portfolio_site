@@ -401,7 +401,7 @@ body:has(button:hover) #cursor-ring {
   color: var(--text-mid);
   font-weight: 300;
   line-height: 1.6;
-  max-width: 650px;
+  max-width: 700px;
   margin-bottom: 3rem;
   opacity: 0;
   animation: fadeUp 1s 0.6s forwards;
