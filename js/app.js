@@ -1,10 +1,13 @@
 /* ============================================================
    RODRIGO ESTRELLA — Portfolio JS
-   Canvas constellation · Navbar scroll · Custom cursor · Lang toggle
+   Canvas constellation · Navbar scroll · Custom cursor · Reveals
+   (theme/lang toggles live in layout.js)
    ============================================================ */
 
-/* ─── 1. Custom Cursor ──────────────────────────────────── */
+/* ─── 1. Custom Cursor (pointer devices only) ───────────── */
 (function initCursor() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
   const dot  = document.createElement('div'); dot.id  = 'cursor-dot';
   const ring = document.createElement('div'); ring.id = 'cursor-ring';
   document.body.append(dot, ring);
@@ -27,14 +30,17 @@
 
 /* ─── 2. Navbar scroll behaviour ───────────────────────── */
 (function initNavbar() {
-  const navbar = document.querySelector('.navbar');
-  if (!navbar) return;
-  const onScroll = () => {
-    if (window.scrollY > 40) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  // header is injected by layout.js on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    const onScroll = () => {
+      if (window.scrollY > 40) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  });
 })();
 
 /* ─── 3. Animated constellation canvas ─────────────────── */
@@ -50,10 +56,10 @@
   const ctx = canvas.getContext('2d');
   let W, H, nodes;
 
-  // Theme-aware colors — Quarto adds .quarto-light or .quarto-dark to <body>
+  const isLight = () => document.documentElement.classList.contains('light');
+
   function getThemeColors() {
-    const isLight = document.body.classList.contains('quarto-light');
-    return isLight
+    return isLight()
       ? { c1: '30,58,138', c2: '67,56,202' }     // dark navy/indigo on light bg
       : { c1: '124,158,245', c2: '180,140,245' }; // blue/purple on dark bg
   }
@@ -81,14 +87,14 @@
     };
   }
 
-  // Re-color nodes when theme toggles — Quarto changes body class
+  // Re-color nodes when theme toggles (class flips on <html>)
   const themeObserver = new MutationObserver(() => {
     if (nodes) nodes.forEach(n => {
       const { c1, c2 } = getThemeColors();
       n.color = Math.random() < 0.15 ? c1 : c2;
     });
   });
-  themeObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
   let mouse = { x: -999, y: -999 };
   window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
@@ -122,8 +128,7 @@
         const dy = nodes[i].y - nodes[j].y;
         const d  = Math.sqrt(dx * dx + dy * dy);
         if (d < MAX_DIST) {
-          const isLight = document.body.classList.contains('quarto-light');
-          const alpha = (1 - d / MAX_DIST) * (isLight ? 0.28 : 0.22);
+          const alpha = (1 - d / MAX_DIST) * (isLight() ? 0.28 : 0.22);
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -144,7 +149,7 @@
 
 /* ─── 4. Scroll reveal ──────────────────────────────────── */
 (function initReveal() {
-  const targets = document.querySelectorAll('.project-card, .art-banner, .section-header, .art-process-card');
+  const targets = document.querySelectorAll('.project-card, .project-feature, .service-card, .contact-band, .art-banner, .section-header, .art-process-card');
   if (!targets.length) return;
 
   const io = new IntersectionObserver((entries) => {
@@ -161,53 +166,4 @@
     t.style.opacity = '0';
     io.observe(t);
   });
-})();
-
-/* ─── 5. Language toggle ───────────────────────────────── */
-(function initLangToggle() {
-  // Inject toggle widget into navbar right side
-  const navRight = document.querySelector('.navbar-nav.ms-auto, .navbar-nav.navbar-right, #quarto-navbar-right, .navbar .navbar-nav:last-child');
-
-  const wrap = document.createElement('li');
-  wrap.className = 'nav-item d-flex align-items-center';
-  wrap.innerHTML = `
-    <div id="lang-toggle" aria-label="Cambiar idioma / Switch language">
-      <button id="btn-es" class="active" aria-pressed="true">ES</button>
-      <button id="btn-en" aria-pressed="false">EN</button>
-    </div>`;
-
-  if (navRight) {
-    navRight.appendChild(wrap);
-  } else {
-    // fallback: append to navbar-collapse
-    const collapse = document.querySelector('.navbar-collapse .navbar-nav');
-    if (collapse) collapse.appendChild(wrap);
-  }
-
-  const btnEs = document.getElementById('btn-es');
-  const btnEn = document.getElementById('btn-en');
-
-  function applyLang(lang) {
-    // Apply on both <html> and <body> to override the pre-paint class set in <head>
-    const targets = [document.documentElement, document.body];
-    if (lang === 'en') {
-      targets.forEach(el => { el.classList.add('lang-en'); el.classList.remove('lang-es'); });
-      btnEs.classList.remove('active'); btnEs.setAttribute('aria-pressed','false');
-      btnEn.classList.add('active');    btnEn.setAttribute('aria-pressed','true');
-      document.documentElement.setAttribute('lang', 'en');
-    } else {
-      targets.forEach(el => { el.classList.remove('lang-en'); el.classList.add('lang-es'); });
-      btnEn.classList.remove('active'); btnEn.setAttribute('aria-pressed','false');
-      btnEs.classList.add('active');    btnEs.setAttribute('aria-pressed','true');
-      document.documentElement.setAttribute('lang', 'es');
-    }
-    localStorage.setItem('portfolio-lang', lang);
-  }
-
-  // Restore saved lang immediately on every page load
-  const saved = localStorage.getItem('portfolio-lang') || 'es';
-  applyLang(saved);
-
-  btnEs.addEventListener('click', () => applyLang('es'));
-  btnEn.addEventListener('click', () => applyLang('en'));
 })();
