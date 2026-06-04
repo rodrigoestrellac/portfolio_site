@@ -4,9 +4,12 @@
    (theme/lang toggles live in layout.js)
    ============================================================ */
 
+const REDUCE_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE_POINTER  = window.matchMedia('(pointer: fine)').matches;
+
 /* ─── 1. Custom Cursor (pointer devices only) ───────────── */
 (function initCursor() {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (!FINE_POINTER || REDUCE_MOTION) return;
 
   const dot  = document.createElement('div'); dot.id  = 'cursor-dot';
   const ring = document.createElement('div'); ring.id = 'cursor-ring';
@@ -45,8 +48,15 @@
 
 /* ─── 3. Animated constellation canvas ─────────────────── */
 (function initCanvas() {
+  if (REDUCE_MOTION) {
+    const overlay = document.createElement('div');
+    overlay.className = 'bg-gradient-overlay';
+    document.body.prepend(overlay);
+    return;
+  }
   const canvas = document.createElement('canvas');
   canvas.id = 'portfolio-canvas';
+  canvas.setAttribute('aria-hidden', 'true');
   document.body.prepend(canvas);
 
   const overlay = document.createElement('div');
@@ -149,7 +159,8 @@
 
 /* ─── 4. Scroll reveal ──────────────────────────────────── */
 (function initReveal() {
-  const targets = document.querySelectorAll('.project-card, .project-feature, .service-card, .contact-band, .art-banner, .section-header, .art-process-card');
+  if (REDUCE_MOTION) return;
+  const targets = document.querySelectorAll('.project-card, .project-feature, .service-card, .contact-band, .art-banner, .section-header, .art-process-card, .stats-band, .tech-marquee');
   if (!targets.length) return;
 
   const io = new IntersectionObserver((entries) => {
@@ -166,4 +177,148 @@
     t.style.opacity = '0';
     io.observe(t);
   });
+})();
+
+/* ─── 5. Barra de progreso de scroll ───────────────────── */
+(function initProgress() {
+  const bar = document.createElement('div');
+  bar.id = 'scroll-progress';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.prepend(bar);
+
+  let ticking = false;
+  function update() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+})();
+
+/* ─── 6. Stats: contadores animados ────────────────────── */
+(function initCounters() {
+  const counters = document.querySelectorAll('.stat-value[data-count]');
+  if (!counters.length) return;
+
+  function animate(el) {
+    const target = parseFloat(el.getAttribute('data-count'));
+    const numEl = el.querySelector('.stat-num');
+    if (!numEl) return;
+    if (REDUCE_MOTION) { numEl.textContent = target; return; }
+    const dur = 1400;
+    const t0 = performance.now();
+    function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      numEl.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(c => io.observe(c));
+})();
+
+/* ─── 7. Hero typewriter rotator ───────────────────────── */
+(function initRotator() {
+  const el = document.getElementById('rotator');
+  if (!el) return;
+
+  const PHRASES = {
+    es: ['sistemas de datos que no se rompen', 'dashboards que responden preguntas', 'apps como Fulbito', 'arte con algoritmos propios'],
+    en: ['data systems that don’t break', 'dashboards that answer questions', 'apps like Fulbito', 'art from my own algorithms']
+  };
+  let lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'es';
+  let phraseIdx = 0, charIdx = 0, deleting = false, timer = null;
+
+  if (REDUCE_MOTION) {
+    el.textContent = PHRASES[lang][0];
+    window.addEventListener('portfolio:lang', e => { el.textContent = PHRASES[e.detail][0]; });
+    return;
+  }
+
+  function step() {
+    const phrase = PHRASES[lang][phraseIdx % PHRASES[lang].length];
+    if (!deleting) {
+      charIdx++;
+      el.textContent = phrase.slice(0, charIdx);
+      if (charIdx === phrase.length) { deleting = true; timer = setTimeout(step, 2200); return; }
+      timer = setTimeout(step, 38 + Math.random() * 45);
+    } else {
+      charIdx--;
+      el.textContent = phrase.slice(0, charIdx);
+      if (charIdx === 0) { deleting = false; phraseIdx++; timer = setTimeout(step, 350); return; }
+      timer = setTimeout(step, 18);
+    }
+  }
+  timer = setTimeout(step, 1600);
+
+  window.addEventListener('portfolio:lang', e => {
+    lang = e.detail;
+    clearTimeout(timer);
+    charIdx = 0; deleting = false;
+    el.textContent = '';
+    timer = setTimeout(step, 300);
+  });
+})();
+
+/* ─── 8. Botones magnéticos ────────────────────────────── */
+(function initMagnetic() {
+  if (!FINE_POINTER || REDUCE_MOTION) return;
+  document.querySelectorAll('.btn-primary-custom, .btn-ghost-custom, .btn-whatsapp').forEach(btn => {
+    const STRENGTH = 0.22, LIMIT = 7;
+    btn.addEventListener('pointermove', e => {
+      const r = btn.getBoundingClientRect();
+      const dx = (e.clientX - r.left - r.width / 2) * STRENGTH;
+      const dy = (e.clientY - r.top - r.height / 2) * STRENGTH;
+      btn.style.transform = 'translate(' +
+        Math.max(-LIMIT, Math.min(LIMIT, dx)) + 'px,' +
+        (Math.max(-LIMIT, Math.min(LIMIT, dy)) - 2) + 'px)';
+    });
+    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+  });
+})();
+
+/* ─── 9. Tilt 3D en cards de proyecto ──────────────────── */
+(function initTilt() {
+  if (!FINE_POINTER || REDUCE_MOTION) return;
+  const MAX = 3.5; // grados
+  document.querySelectorAll('.project-card, .project-feature').forEach(card => {
+    card.addEventListener('pointerenter', () => {
+      card.style.transition = 'transform 0.12s ease-out, border-color 0.35s, background 0.35s, box-shadow 0.35s';
+    });
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform =
+        'translateY(-6px) rotateX(' + (-py * MAX) + 'deg) rotateY(' + (px * MAX) + 'deg)';
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.transition = '';
+      card.style.transform = '';
+    });
+  });
+})();
+
+/* ─── 10. Para quienes miran bajo el capó ──────────────── */
+(function consoleSignature() {
+  try {
+    console.log(
+      '%c✦ Rodrigo Estrella %c¿Curioseando la consola? Me gusta tu estilo.\n' +
+      'Este sitio es HTML/CSS/JS artesanal: sin frameworks, sin build step.\n' +
+      '¿Hablamos? → rodrigoestrellac@gmail.com',
+      'font-size:16px; font-weight:bold; color:#7c9ef5;',
+      'font-size:12px; color:#8898b8; line-height:1.6;'
+    );
+  } catch (e) { /* noop */ }
 })();
