@@ -234,8 +234,8 @@ const FINE_POINTER  = window.matchMedia('(pointer: fine)').matches;
   if (!el) return;
 
   const PHRASES = {
-    es: ['sistemas de datos que no se rompen', 'dashboards que responden preguntas', 'apps como Fulbito', 'arte con algoritmos propios'],
-    en: ['data systems that don’t break', 'dashboards that answer questions', 'apps like Fulbito', 'art from my own algorithms']
+    es: ['sistemas de datos que no se rompen', 'productos potenciados con IA', 'apps como Fulbito', 'dashboards que responden preguntas', 'arte con algoritmos propios'],
+    en: ['data systems that don’t break', 'AI-powered products', 'apps like Fulbito', 'dashboards that answer questions', 'art from my own algorithms']
   };
   let lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'es';
   let phraseIdx = 0, charIdx = 0, deleting = false, timer = null;
