@@ -430,9 +430,10 @@ html.light .theme-toggle .icon-sun { display: none; }
   letter-spacing: 0.01em;
   color: var(--text-hi);
   margin: 0 0 1.5rem;
-  opacity: 0;
-  animation: fadeUp 0.9s 0.4s forwards;
+  /* Sin opacity:0 — es el elemento LCP; ocultarlo retrasa el paint ~1.3s */
+  animation: slideUpIn 0.7s ease-out;
 }
+@keyframes slideUpIn { from { transform: translateY(24px); } to { transform: translateY(0); } }
 .hero-name-wide { font-size: clamp(2.8rem, 7vw, 6rem); }
 .hero-name em {
   font-style: normal;
@@ -1488,6 +1489,11 @@ html.light body::after { opacity: 0.05; }
   min-height: 1.5em;
   opacity: 0;
   animation: fadeUp 1s 0.7s forwards;
+}
+/* En mobile las frases del typewriter hacen wrap a 2 líneas:
+   reservar el alto evita el layout shift (CLS 0.35 medido) */
+@media (max-width: 640px) {
+  .hero-rotator { min-height: 3.2em; }
 }
 .hero-rotator .rotator-prefix { color: var(--text-lo); }
 
