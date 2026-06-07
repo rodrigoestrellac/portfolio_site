@@ -316,7 +316,7 @@ const FINE_POINTER  = window.matchMedia('(pointer: fine)').matches;
     console.log(
       '%c✦ Rodrigo Estrella %c¿Curioseando la consola? Me gusta tu estilo.\n' +
       'Este sitio es HTML/CSS/JS artesanal: sin frameworks, sin build step.\n' +
-      '¿Hablamos? → rodrigoestrellac@gmail.com',
+      '¿Hablamos? → hola@rodrigoestrella.com',
       'font-size:16px; font-weight:bold; color:#7c9ef5;',
       'font-size:12px; color:#8898b8; line-height:1.6;'
     );
